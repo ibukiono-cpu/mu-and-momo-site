@@ -4,31 +4,73 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>株式会社むぅ&もも | 会社概要</title>
-  <meta name="description" content="株式会社むぅ&ももの会社概要ページです。" />
+  <meta name="description" content="株式会社むぅ&もも（mu & momo, Inc.）の会社概要ページです。" />
+
+  <!-- OGP（SNSで綺麗に出る） -->
+  <meta property="og:title" content="株式会社むぅ&もも | 会社概要" />
+  <meta property="og:description" content="株式会社むぅ&もも（mu & momo, Inc.）の会社概要ページです。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mu-and-momo.com/" />
+
+  <!-- 軽いSEO補助 -->
+  <meta name="robots" content="index,follow" />
+
   <style>
     :root{
-      --bg:#0b0b0f; --card:#12121a; --text:#f5f5f7; --muted:#b6b6c2;
-      --accent:#ffd700; --line:rgba(255,255,255,.12);
+      --bg:#0b0b0f;
+      --card:rgba(255,255,255,.03);
+      --text:#f5f5f7;
+      --muted:#b6b6c2;
+      --accent:#ffd700;
+      --line:rgba(255,255,255,.12);
+      --line2:rgba(255,255,255,.10);
     }
+
+    *{box-sizing:border-box}
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Sans","Noto Sans JP",sans-serif;
       background:radial-gradient(900px 600px at 20% 0%,rgba(255,215,0,.16),transparent 60%),var(--bg);
       color:var(--text);
     }
+
     .wrap{max-width:920px;margin:0 auto;padding:28px 18px 60px;}
+
     .top{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:10px 0 18px;border-bottom:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0 18px;
+      border-bottom:1px solid var(--line);
     }
-    .brand{display:flex;gap:10px;align-items:center;}
+
+    .brand{display:flex;gap:12px;align-items:center;min-width:0;}
+
+    /* ロゴ：画像が綺麗に収まる設定 */
     .logo{
-      width:40px;height:40px;border-radius:14px;
-      border:1px solid var(--line);display:grid;place-items:center;
-      background:rgba(255,255,255,.04);font-weight:800;color:var(--accent);
+      width:64px;
+      height:64px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      overflow:hidden;
+      flex:0 0 auto;
     }
-    .name{font-weight:800;font-size:16px}
-    .sub{color:var(--muted);font-size:12px;margin-top:2px}
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+
+    .titleBox{min-width:0}
+    .name{font-weight:800;font-size:16px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .sub{color:var(--muted);font-size:12px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
     .pill{
       border:1px solid var(--line);
       border-radius:999px;
@@ -36,41 +78,73 @@
       color:var(--muted);
       font-size:12px;
       background:rgba(255,255,255,.03);
+      flex:0 0 auto;
     }
-    h1{margin:22px 0 10px;font-size:30px}
+
+    h1{margin:22px 0 10px;font-size:30px;letter-spacing:.02em}
     p{margin:0;color:var(--muted);line-height:1.9}
+
     .card{
       margin-top:16px;
       border:1px solid var(--line);
       border-radius:18px;
-      background:rgba(255,255,255,.03);
+      background:var(--card);
       padding:18px;
     }
+
     .table{width:100%;border-collapse:collapse;margin-top:6px}
     .table th,.table td{
       padding:12px 10px;
-      border-bottom:1px solid rgba(255,255,255,.10);
+      border-bottom:1px solid var(--line2);
       vertical-align:top;
     }
-    .table th{width:160px;color:var(--muted);font-weight:700;text-align:left}
+    .table th{
+      width:160px;
+      color:var(--muted);
+      font-weight:700;
+      text-align:left;
+      white-space:nowrap;
+    }
+
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    footer{
-      margin-top:26px;padding-top:16px;border-top:1px solid var(--line);
-      color:var(--muted);font-size:12px;line-height:1.7
-    }
+
     .note{font-size:12px;color:var(--muted);margin-top:8px}
-    @media (max-width:720px){.table th{width:120px}}
+
+    footer{
+      margin-top:26px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.7;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .rightLinks{display:flex;gap:10px;flex-wrap:wrap}
+    .rightLinks a{color:var(--muted)}
+    .rightLinks a:hover{color:var(--text)}
+
+    @media (max-width:720px){
+      .table th{width:120px}
+      .logo{width:56px;height:56px;border-radius:16px}
+      h1{font-size:26px}
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="top">
       <div class="brand">
         <div class="logo">
-  <img src="logo.png" alt="株式会社むぅ&もも ロゴ">
-</div>
-        <div>
+          <img src="logo.png" alt="株式会社むぅ&もも ロゴ">
+        </div>
+        <div class="titleBox">
           <div class="name">株式会社むぅ&もも</div>
           <div class="sub">mu & momo, Inc.</div>
         </div>
@@ -100,7 +174,7 @@
         <tr>
           <th>事業内容</th>
           <td>
-            ・アプリケーション/ウェブサービスの企画・開発・運営<br>
+            ・アプリケーション／ウェブサービスの企画・開発・運営<br>
             ・関連するデザイン、マーケティング支援
           </td>
         </tr>
@@ -111,8 +185,10 @@
         <tr>
           <th>連絡先</th>
           <td>
-            お問い合わせ：<a href="mailto:ibukiono@mu-and-momo.com">ibukiono@mu-and-momo.com</a><br>
-            <span class="note"></span>
+            お問い合わせ：
+            <a href="mailto:ibukiono@mu-and-momo.com?subject=%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%80%E3%81%85%26%E3%82%82%E3%82%82%20%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
+              ibukiono@mu-and-momo.com
+            </a>
           </td>
         </tr>
         <tr>
@@ -120,10 +196,18 @@
           <td><a href="https://mu-and-momo.com">https://mu-and-momo.com</a></td>
         </tr>
       </table>
+
+      <div class="note">
+        ※ ロゴ画像はリポジトリ直下に <strong>logo.png</strong> としてアップロードしてください。
+      </div>
     </div>
 
     <footer>
-      © <span id="y"></span> 株式会社むぅ&もも
+      <div>© <span id="y"></span> 株式会社むぅ&もも</div>
+      <div class="rightLinks">
+        <a href="https://mu-and-momo.com">Top</a>
+        <a href="mailto:ibukiono@mu-and-momo.com">Contact</a>
+      </div>
     </footer>
   </div>
 
