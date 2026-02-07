@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mu-and-momo.com/sitemap.xml

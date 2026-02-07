@@ -3,62 +3,93 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>株式会社むぅ&もも | 会社概要</title>
-  <meta name="description" content="株式会社むぅ&もも（mu & momo, Inc.）の会社概要ページです。" />
+  <title>会社概要 | 株式会社むぅ&もも</title>
+  <meta name="description" content="株式会社むぅ&もも（mu & momo, Inc.）の会社概要。安心・安全を重視したデジタルサービスの企画・開発・運営。" />
 
   <!-- OGP（SNSで綺麗に出る） -->
-  <meta property="og:title" content="株式会社むぅ&もも | 会社概要" />
-  <meta property="og:description" content="株式会社むぅ&もも（mu & momo, Inc.）の会社概要ページです。" />
+  <meta property="og:title" content="会社概要 | 株式会社むぅ&もも" />
+  <meta property="og:description" content="株式会社むぅ&もも（mu & momo, Inc.）の会社概要。安心・安全を重視したデジタルサービスの企画・開発・運営。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mu-and-momo.com/" />
 
   <!-- 軽いSEO補助 -->
   <meta name="robots" content="index,follow" />
 
+  <meta property="og:image" content="https://mu-and-momo.com/logo.png" />
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
     :root{
-      --bg:#0b0b0f;
-      --card:rgba(255,255,255,.03);
-      --text:#f5f5f7;
-      --muted:#b6b6c2;
-      --accent:#ffd700;
-      --line:rgba(255,255,255,.12);
-      --line2:rgba(255,255,255,.10);
+      --bg:#ffffff;
+      --bg-subtle:#f8fafc;
+      --bg-elevated:#ffffff;
+      --card:#ffffff;
+      --text:#1a1d21;
+      --text-secondary:#4b5563;
+      --muted:#6b7280;
+      --accent:#1e40af;
+      --accent-hover:#1e3a8a;
+      --line:#e5e7eb;
+      --line2:#f3f4f6;
+      --shadow:0 1px 3px rgba(0,0,0,.06);
+      --font-serif:'Noto Serif JP',Georgia,serif;
+      --font-sans:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
     }
 
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Sans","Noto Sans JP",sans-serif;
-      background:radial-gradient(900px 600px at 20% 0%,rgba(255,215,0,.16),transparent 60%),var(--bg);
+      font-family:var(--font-sans);
+      font-weight:400;
+      background:var(--bg);
       color:var(--text);
+      line-height:1.7;
+      letter-spacing:.02em;
     }
 
-    .wrap{max-width:920px;margin:0 auto;padding:28px 18px 60px;}
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
 
-    .top{
+    .header-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:20px 24px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-      padding:10px 0 18px;
-      border-bottom:1px solid var(--line);
+      gap:24px;
     }
 
-    .brand{display:flex;gap:12px;align-items:center;min-width:0;}
-
-    /* ロゴ：画像が綺麗に収まる設定 */
-    .logo{
-      width:64px;
-      height:64px;
-      border-radius:18px;
-      border:1px solid var(--line);
+    .brand{
       display:flex;
+      gap:16px;
       align-items:center;
-      justify-content:center;
-      background:#fff;
+      text-decoration:none;
+      color:inherit;
+    }
+    .brand:hover{opacity:.9}
+
+    .logo{
+      width:48px;
+      height:48px;
+      border-radius:12px;
       overflow:hidden;
-      flex:0 0 auto;
+      background:#fff;
+      flex-shrink:0;
+      border:1px solid var(--line);
     }
     .logo img{
       width:100%;
@@ -67,98 +98,272 @@
       display:block;
     }
 
-    .titleBox{min-width:0}
-    .name{font-weight:800;font-size:16px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .sub{color:var(--muted);font-size:12px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-    .pill{
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:7px 10px;
+    .brand-text{}
+    .brand-name{
+      font-family:var(--font-serif);
+      font-weight:600;
+      font-size:18px;
+      letter-spacing:.04em;
+      color:var(--text);
+    }
+    .brand-en{
+      font-size:11px;
       color:var(--muted);
-      font-size:12px;
-      background:rgba(255,255,255,.03);
-      flex:0 0 auto;
+      letter-spacing:.12em;
+      margin-top:2px;
     }
 
-    h1{margin:22px 0 10px;font-size:30px;letter-spacing:.02em}
-    p{margin:0;color:var(--muted);line-height:1.9}
+    .nav{
+      display:flex;
+      gap:32px;
+      align-items:center;
+    }
+    .nav a{
+      font-size:13px;
+      font-weight:500;
+      color:var(--text-secondary);
+      text-decoration:none;
+      transition:color .2s;
+    }
+    .nav a:hover,.nav a.active{color:var(--accent)}
+    .nav-divider{
+      width:1px;
+      height:14px;
+      background:var(--line);
+    }
 
-    .card{
-      margin-top:16px;
-      border:1px solid var(--line);
-      border-radius:18px;
+    .hero{
+      max-width:1100px;
+      margin:0 auto;
+      padding:72px 24px 56px;
+      text-align:center;
+    }
+    .hero-label{
+      font-size:11px;
+      font-weight:500;
+      color:var(--accent);
+      letter-spacing:.2em;
+      margin-bottom:12px;
+    }
+    .hero h1{
+      font-family:var(--font-serif);
+      font-weight:600;
+      font-size:clamp(28px,4vw,40px);
+      letter-spacing:.06em;
+      margin:0 0 16px;
+      line-height:1.4;
+    }
+    .hero-desc{
+      max-width:560px;
+      margin:0 auto;
+      font-size:15px;
+      color:var(--text-secondary);
+      line-height:1.9;
+    }
+
+    .main{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 24px 80px;
+    }
+
+    .section{
+      margin-bottom:64px;
+    }
+    .section-title{
+      font-family:var(--font-serif);
+      font-weight:600;
+      font-size:20px;
+      letter-spacing:.06em;
+      margin:0 0 24px;
+      padding-bottom:12px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .message-card{
       background:var(--card);
-      padding:18px;
+      border:1px solid var(--line);
+      border-radius:4px;
+      padding:32px 40px;
+      margin-bottom:48px;
+      box-shadow:var(--shadow);
+    }
+    .message-card p{
+      margin:0;
+      font-size:15px;
+      color:var(--text-secondary);
+      line-height:2;
     }
 
-    .table{width:100%;border-collapse:collapse;margin-top:6px}
-    .table th,.table td{
-      padding:12px 10px;
+    .profile-table{
+      width:100%;
+      border-collapse:collapse;
+    }
+    .profile-table th,.profile-table td{
+      padding:20px 24px;
       border-bottom:1px solid var(--line2);
       vertical-align:top;
     }
-    .table th{
-      width:160px;
+    .profile-table th{
+      width:180px;
+      font-size:13px;
+      font-weight:500;
       color:var(--muted);
-      font-weight:700;
-      text-align:left;
-      white-space:nowrap;
+      letter-spacing:.06em;
+    }
+    .profile-table td{
+      font-size:15px;
+      color:var(--text-secondary);
+    }
+    .profile-table tr:last-child th,.profile-table tr:last-child td{
+      border-bottom:none;
     }
 
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
+    a{
+      color:var(--accent);
+      text-decoration:none;
+      transition:color .2s;
+    }
+    a:hover{color:var(--accent-hover)}
 
-    .note{font-size:12px;color:var(--muted);margin-top:8px}
-
-    footer{
-      margin-top:26px;
-      padding-top:16px;
+    .site-footer{
+      background:var(--bg-subtle);
       border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.7;
+      margin-top:80px;
+    }
+    .footer-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:40px 24px 32px;
+    }
+    .footer-main{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:10px;
+      align-items:flex-start;
+      gap:40px;
       flex-wrap:wrap;
+      padding-bottom:32px;
+      border-bottom:1px solid var(--line2);
+    }
+    .footer-brand{
+      font-family:var(--font-serif);
+      font-weight:600;
+      font-size:16px;
+      letter-spacing:.04em;
+      color:var(--text);
+    }
+    .footer-links{
+      display:flex;
+      gap:24px;
+    }
+    .footer-links a{
+      font-size:13px;
+      color:var(--muted);
+    }
+    .footer-links a:hover{color:var(--accent)}
+
+    .footer-bottom{
+      margin-top:24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:16px;
+    }
+    .copyright{
+      font-size:12px;
+      color:var(--muted);
     }
 
-    .rightLinks{display:flex;gap:10px;flex-wrap:wrap}
-    .rightLinks a{color:var(--muted)}
-    .rightLinks a:hover{color:var(--text)}
-
+    .hamburger{display:none;flex-direction:column;gap:6px;padding:8px;cursor:pointer;background:none;border:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+    .nav-mobile{display:none;position:fixed;top:0;right:0;bottom:0;width:280px;background:#fff;box-shadow:-4px 0 20px rgba(0,0,0,.1);z-index:200;padding:80px 24px 24px;flex-direction:column;gap:8px}
+    body.nav-open .nav-mobile{display:flex}
+    body.nav-open .nav-overlay{display:block}
+    body.nav-open{overflow:hidden}
+    .nav-mobile a{display:block;padding:14px 0;font-size:16px;border-bottom:1px solid var(--line)}
+    .nav-close{position:absolute;top:20px;right:20px;width:40px;height:40px;padding:0;background:none;border:none;cursor:pointer;font-size:24px;color:var(--muted)}
+    .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:199}
+    .nav-overlay.open{display:block}
+    .cta-miora{display:inline-block;margin-top:24px;padding:16px 32px;background:var(--accent);color:#fff;font-weight:600;font-size:15px;border-radius:6px;text-decoration:none;transition:background .2s}
+    .cta-miora:hover{background:var(--accent-hover);color:#fff}
+    .pagetop{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:20px;box-shadow:0 4px 12px rgba(30,64,175,.3);z-index:90;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+    .pagetop.visible{opacity:1;visibility:visible}
+    .pagetop:hover{background:var(--accent-hover);color:#fff}
     @media (max-width:720px){
-      .table th{width:120px}
-      .logo{width:56px;height:56px;border-radius:16px}
-      h1{font-size:26px}
+      .header-inner{padding:16px 18px}
+      .hero{padding:48px 18px 40px}
+      .main{padding:0 18px 56px}
+      .profile-table th{width:120px;padding:16px 18px}
+      .profile-table td{padding:16px 18px}
+      .message-card{padding:24px 20px}
+      .nav{display:none}
+      .hamburger{display:flex}
     }
   </style>
 </head>
 
-<body>
-  <div class="wrap">
-    <div class="top">
-      <div class="brand">
+<body id="top">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
         <div class="logo">
-          <img src="logo.png" alt="株式会社むぅ&もも ロゴ">
+          <img src="logo.png" alt="株式会社むぅ&もも">
         </div>
-        <div class="titleBox">
-          <div class="name">株式会社むぅ&もも</div>
-          <div class="sub">mu & momo, Inc.</div>
+        <div class="brand-text">
+          <div class="brand-name">株式会社むぅ&もも</div>
+          <div class="brand-en">mu & momo, Inc.</div>
         </div>
-      </div>
-      <div class="pill">Company Profile</div>
+      </a>
+      <nav class="nav">
+        <a href="index.html#top" class="active">トップ</a>
+        <span class="nav-divider"></span>
+        <a href="app.html">Miora</a>
+        <span class="nav-divider"></span>
+        <a href="index.html#profile">会社概要</a>
+        <span class="nav-divider"></span>
+        <a href="app.html#terms">利用規約</a>
+        <span class="nav-divider"></span>
+        <a href="app.html#privacy">プライバシーポリシー</a>
+        <span class="nav-divider"></span>
+        <a href="app.html#contact">お問い合わせ</a>
+      </nav>
+      <button class="hamburger" type="button" aria-label="メニューを開く" onclick="document.body.classList.toggle('nav-open')">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </header>
+  <div class="nav-overlay" onclick="document.body.classList.remove('nav-open')"></div>
+  <nav class="nav-mobile">
+    <button class="nav-close" type="button" aria-label="閉じる" onclick="document.body.classList.remove('nav-open')">×</button>
+    <a href="index.html" onclick="document.body.classList.remove('nav-open')">トップ</a>
+    <a href="app.html" onclick="document.body.classList.remove('nav-open')">Miora</a>
+    <a href="index.html#profile" onclick="document.body.classList.remove('nav-open')">会社概要</a>
+    <a href="app.html#faq" onclick="document.body.classList.remove('nav-open')">よくある質問</a>
+    <a href="app.html#contact" onclick="document.body.classList.remove('nav-open')">お問い合わせ</a>
+    <a href="app.html#terms" onclick="document.body.classList.remove('nav-open')">利用規約</a>
+    <a href="app.html#privacy" onclick="document.body.classList.remove('nav-open')">プライバシーポリシー</a>
+  </nav>
 
+  <section class="hero">
+    <p class="hero-label">CORPORATE PROFILE</p>
     <h1>会社概要</h1>
-    <p>
-      株式会社むぅ&ももは、安心・安全を重視したデジタルサービスの開発・運営に取り組む会社です。
+    <p class="hero-desc">
+      株式会社むぅ&ももは、安心・安全を第一に、デジタルサービスの企画・開発・運営を通じて、お客様のビジネス価値を最大化します。
     </p>
+    <a href="app.html" class="cta-miora">Miora を詳しく見る</a>
+  </section>
 
-    <div class="card">
-      <table class="table" aria-label="会社概要">
+  <main class="main">
+    <section class="section">
+      <div class="message-card">
+        <p>
+          私たちは、アプリケーションおよびウェブサービスの企画・開発・運営を核とし、デザインおよびマーケティング支援を融合したソリューションを提供しております。お客様の課題解決と成長に貢献するパートナーとして、品質と信頼を大切に事業を展開しています。
+        </p>
+      </div>
+
+      <h2 class="section-title" id="profile">会社情報</h2>
+      <table class="profile-table" aria-label="会社概要">
         <tr>
           <th>会社名</th>
           <td>株式会社むぅ&もも</td>
@@ -174,18 +379,17 @@
         <tr>
           <th>事業内容</th>
           <td>
-            ・アプリケーション／ウェブサービスの企画・開発・運営<br>
-            ・関連するデザイン、マーケティング支援
+            アプリケーション／ウェブサービスの企画・開発・運営<br>
+            デザインおよびマーケティング支援
           </td>
         </tr>
         <tr>
           <th>所在地</th>
-          <td>東京都板橋区泉町4番5号</td>
+          <td>〒173-0004　東京都板橋区泉町4番5号</td>
         </tr>
         <tr>
-          <th>連絡先</th>
+          <th>お問い合わせ</th>
           <td>
-            お問い合わせ：
             <a href="mailto:ibukiono@mu-and-momo.com?subject=%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%82%80%E3%81%85%26%E3%82%82%E3%82%82%20%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">
               ibukiono@mu-and-momo.com
             </a>
@@ -196,23 +400,33 @@
           <td><a href="https://mu-and-momo.com">https://mu-and-momo.com</a></td>
         </tr>
       </table>
+    </section>
+  </main>
 
-      <div class="note">
-        ※ ロゴ画像はリポジトリ直下に <strong>logo.png</strong> としてアップロードしてください。
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-main">
+        <div class="footer-brand">株式会社むぅ&もも</div>
+        <div class="footer-links">
+          <a href="index.html">トップ</a>
+          <a href="app.html">Miora</a>
+          <a href="index.html#profile">会社概要</a>
+          <a href="app.html#terms">利用規約</a>
+          <a href="app.html#privacy">プライバシーポリシー</a>
+          <a href="mailto:miora.official@mu-and-momo.com">お問い合わせ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">© <span id="y"></span> mu & momo, Inc. All Rights Reserved.</p>
       </div>
     </div>
+  </footer>
 
-    <footer>
-      <div>© <span id="y"></span> 株式会社むぅ&もも</div>
-      <div class="rightLinks">
-        <a href="https://mu-and-momo.com">Top</a>
-        <a href="mailto:ibukiono@mu-and-momo.com">Contact</a>
-      </div>
-    </footer>
-  </div>
+  <button class="pagetop" type="button" aria-label="ページトップへ" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+    window.addEventListener('scroll',function(){document.querySelector('.pagetop').classList.toggle('visible',window.scrollY>400)});
   </script>
 </body>
 </html>
