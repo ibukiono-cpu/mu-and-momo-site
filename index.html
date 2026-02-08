@@ -15,7 +15,7 @@
   <!-- 軽いSEO補助 -->
   <meta name="robots" content="index,follow" />
 
-  <meta property="og:image" content="https://mu-and-momo.com/logo.png" />
+  <meta property="og:image" content="https://mu-and-momo.com/og-image.png" />
   <link rel="icon" type="image/png" href="logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -180,6 +180,40 @@
       border-bottom:1px solid var(--line);
     }
 
+    .greeting-card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:4px;
+      padding:48px 48px 40px;
+      margin-bottom:48px;
+      box-shadow:var(--shadow);
+    }
+    .greeting-card h2{
+      font-family:var(--font-serif);
+      font-weight:600;
+      font-size:20px;
+      letter-spacing:.06em;
+      margin:0 0 28px;
+      padding-bottom:12px;
+      border-bottom:1px solid var(--line);
+    }
+    .greeting-card .greeting-body{
+      font-size:15px;
+      color:var(--text-secondary);
+      line-height:2;
+      margin-bottom:28px;
+    }
+    .greeting-card .greeting-body p{
+      margin:0 0 1.4em;
+    }
+    .greeting-card .greeting-body p:last-child{
+      margin-bottom:0;
+    }
+    .greeting-card .greeting-sign{
+      font-size:14px;
+      font-weight:500;
+      color:var(--text);
+    }
     .message-card{
       background:var(--card);
       border:1px solid var(--line);
@@ -316,6 +350,7 @@
       .profile-table td{padding:16px 18px}
       .profile-logo img{max-width:100%}
       .profile-block{padding:24px 18px 24px}
+      .greeting-card{padding:32px 20px}
       .message-card{padding:24px 20px}
       .nav{display:none}
       .hamburger{display:flex}
@@ -370,10 +405,23 @@
 
   <main class="main">
     <section class="section">
-      <div class="message-card">
-        <p>
-          私たちは、アプリケーションおよびウェブサービスの企画・開発・運営を核とし、デザインおよびマーケティング支援を融合したソリューションを提供しております。お客様の課題解決と成長に貢献するパートナーとして、品質と信頼を大切に事業を展開しています。
-        </p>
+      <div class="greeting-card">
+        <h2>代表挨拶</h2>
+        <div class="greeting-body">
+          <p>
+            株式会社むぅ＆ももをご覧いただき、誠にありがとうございます。代表の小野です。
+          </p>
+          <p>
+            「安心して自分らしく生きられる社会をつくりたい」—　その想いから、私たちはデジタルの力で人と人とをつなぐサービスを届けています。トランスジェンダーの方々のための出会い・マッチングアプリ Miora（ミオーラ）をはじめ、アプリケーションやウェブサービスの企画・開発・運営、デザインやマーケティング支援まで、お客様の課題に合わせたソリューションを提供しております。
+          </p>
+          <p>
+            技術だけでなく、誰かの人生に寄り添う姿勢を大切にしています。一人ひとりが尊重され、安心して利用できるサービスづくりを、品質と信頼を第一に進めてまいります。
+          </p>
+          <p>
+            これからも、デジタルを通じて社会に役立つ価値を届け続けます。ご縁をいただけましたら、どうぞよろしくお願いいたします。
+          </p>
+        </div>
+        <p class="greeting-sign">代表取締役　小野維吹</p>
       </div>
 
       <h2 class="section-title" id="profile">会社情報</h2>
@@ -391,6 +439,10 @@
           <td>mu & momo, Inc.</td>
         </tr>
         <tr>
+          <th>法人番号</th>
+          <td>9011401027696</td>
+        </tr>
+        <tr>
           <th>代表者</th>
           <td>代表取締役　小野維吹</td>
         </tr>
@@ -403,7 +455,7 @@
         </tr>
         <tr>
           <th>所在地</th>
-          <td>〒173-0004　東京都板橋区泉町4番5号</td>
+          <td>〒174-0055　東京都板橋区泉町4番5号</td>
         </tr>
         <tr>
           <th>お問い合わせ</th>
