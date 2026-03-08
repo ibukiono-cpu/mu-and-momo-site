@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>株式会社むぅ＆もも | スタートアップ成長支援 Web制作</title>
+  <meta name="description" content="創業〜シリーズA前のスタートアップ向け公式サイト制作。ブランド設計・CV導線・計測設計・月額伴走支援。制作費120万円〜。" />
+
+  <meta property="og:title" content="株式会社むぅ＆もも | スタートアップ成長支援 Web制作" />
+  <meta property="og:description" content="創業〜シリーズA前のスタートアップ向け公式サイト制作。ブランド設計・CV導線・計測設計・月額伴走支援。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mu-and-momo.com/startup.html" />
+  <meta property="og:image" content="https://mu-and-momo.com/og-image.png" />
+  <link rel="icon" type="image/png" href="https://mu-and-momo.com/og-image.png" />
+  <link rel="apple-touch-icon" href="https://mu-and-momo.com/og-image.png" />
+  <meta name="robots" content="index,follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#f8fafc;
+      --bg-subtle:#f1f5f9;
+      --text:#0f172a;
+      --text-secondary:#475569;
+      --muted:#64748b;
+      --accent:#2563eb;
+      --accent-hover:#1d4ed8;
+      --accent-soft:rgba(37,99,235,.08);
+      --line:#e2e8f0;
+      --line2:#f1f5f9;
+      --shadow:0 1px 3px rgba(0,0,0,.08);
+      --shadow-accent:0 4px 14px rgba(37,99,235,.25);
+      --font-serif:'Noto Serif JP',Georgia,serif;
+      --font-sans:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:var(--font-sans);font-weight:400;background:var(--bg);color:var(--text);line-height:1.7;letter-spacing:.02em}
+    .site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+    .header-inner{max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;gap:16px;align-items:center;text-decoration:none;color:inherit}
+    .brand:hover{opacity:.9}
+    .logo{width:48px;height:48px;border-radius:12px;overflow:hidden;background:#fff;flex-shrink:0;border:1px solid var(--line)}
+    .logo img{width:100%;height:100%;object-fit:contain;display:block}
+    .brand-text{}
+    .brand-name{font-family:var(--font-serif);font-weight:600;font-size:18px;letter-spacing:.04em;color:var(--text)}
+    .brand-en{font-size:11px;color:var(--muted);letter-spacing:.12em;margin-top:2px}
+    .nav{display:flex;gap:32px;align-items:center}
+    .nav a{font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .2s}
+    .nav a:hover,.nav a.active{color:var(--accent)}
+    .nav-divider{width:1px;height:14px;background:var(--line)}
+    .hero{max-width:1100px;margin:0 auto;padding:72px 24px 56px;text-align:center}
+    .hero-label{font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.2em;margin-bottom:12px}
+    .hero h1{font-family:var(--font-serif);font-weight:600;font-size:clamp(28px,4vw,40px);letter-spacing:.06em;margin:0 0 16px;line-height:1.4}
+    .hero-desc{max-width:560px;margin:0 auto;font-size:15px;color:var(--text-secondary);line-height:1.9}
+    .main{max-width:1100px;margin:0 auto;padding:0 24px 80px}
+    .section{margin-bottom:56px}
+    .section-title{font-family:var(--font-serif);font-weight:600;font-size:20px;letter-spacing:.06em;margin:0 0 20px;padding-bottom:12px;border-bottom:3px solid var(--accent);color:var(--text)}
+    .intro-card{background:var(--bg-subtle);border:1px solid var(--line);border-radius:4px;padding:32px 40px;margin-bottom:40px}
+    .intro-card p{margin:0 0 1em;font-size:15px;color:var(--text-secondary);line-height:1.9}
+    .intro-card p:last-child{margin-bottom:0}
+    .intro-card ul{margin:12px 0 0;padding-left:20px;color:var(--text-secondary);font-size:15px;line-height:1.9}
+    .package-card{border:2px solid var(--line);border-radius:10px;padding:28px 36px;margin-bottom:28px;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .package-card h3{font-family:var(--font-serif);font-weight:600;font-size:18px;margin:0 0 8px;letter-spacing:.04em}
+    .package-price{font-size:16px;font-weight:700;margin-bottom:16px}
+    .package-card.pkg-launch{border-left:8px solid #0284c7;border-top-color:#bae6fd;border-right-color:#bae6fd;border-bottom-color:#bae6fd;background:#eff6ff;box-shadow:0 4px 16px rgba(2,132,199,.25)}.package-card.pkg-launch .package-price{color:#0369a1;font-size:17px}
+    .package-card.pkg-core{border-left:8px solid #059669;border-top-color:#a7f3d0;border-right-color:#a7f3d0;border-bottom-color:#a7f3d0;background:#ecfdf5;box-shadow:0 4px 16px rgba(5,150,105,.25)}.package-card.pkg-core .package-price{color:#047857;font-size:17px}
+    .package-card.pkg-scale{border-left:8px solid #b45309;border-top-color:#fde68a;border-right-color:#fde68a;border-bottom-color:#fde68a;background:linear-gradient(145deg,#fffbeb 0%,#fef3c7 50%,#fde68a 100%);box-shadow:0 6px 20px rgba(180,83,9,.35),0 0 0 1px rgba(251,191,36,.4)}.package-card.pkg-scale .package-price{color:#b45309;font-size:18px;text-shadow:0 0 20px rgba(251,191,36,.5)}
+    .package-card ul{margin:0;padding-left:0;list-style:none;font-size:14px;color:var(--text-secondary);line-height:1.85}
+    .package-card li{margin:6px 0;display:flex;align-items:flex-start;gap:0}
+    .package-card .adds{margin-top:12px;padding-top:12px;border-top:1px solid var(--line2);font-size:13px;color:var(--muted)}
+    .option-list{list-style:none;padding:0;margin:0}
+    .option-list li{padding:12px 0;border-bottom:1px solid var(--line2);display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;color:var(--text-secondary)}
+    .option-list li:last-child{border-bottom:none}
+    .option-list .price{font-weight:600;color:var(--text);white-space:nowrap}
+    .option-list-ico li .list-ico{flex-shrink:0}
+    .option-list-ico li span:not(.list-ico):not(.price){flex:1}
+    .support-row{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:20px 0 20px 20px;border-bottom:1px solid var(--line2);flex-wrap:wrap;border-left:4px solid transparent;border-radius:0 4px 4px 0}
+    .support-row:last-child{border-bottom:none}
+    .support-row.plan-server{border-left-color:#64748b}.support-row.plan-server .support-price{color:#64748b}
+    .support-row.plan-light{border-left-color:#2563eb}.support-row.plan-light .support-price{color:#2563eb}
+    .support-row.plan-standard{border-left-color:#0d9488}.support-row.plan-standard .support-price{color:#0d9488}
+    .support-row.plan-growth{border-left-color:#7c3aed}.support-row.plan-growth .support-price{color:#7c3aed}
+    .support-name{font-weight:600;font-size:15px;color:var(--text);display:flex;align-items:center}
+    .support-price{font-weight:600;white-space:nowrap}
+    .support-desc{font-size:14px;color:var(--text-secondary);margin-top:8px;line-height:1.7}
+    .terms-block{background:var(--bg-subtle);border:1px solid var(--line);border-radius:4px;padding:28px 36px;margin-bottom:32px}
+    .terms-block h3{font-size:16px;font-weight:600;margin:0 0 12px}
+    .terms-block p,.terms-block ul{margin:0 0 8px;font-size:14px;color:var(--text-secondary);line-height:1.8}
+    .terms-block ul{padding-left:20px}
+    .icon-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:40px}
+    .icon-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;text-align:center;box-shadow:var(--shadow)}
+    .icon-card .ico-wrap{display:flex;justify-content:center;margin-bottom:14px}
+    .icon-card .ico{width:40px;height:40px;color:var(--accent)}
+    .icon-card strong{display:block;font-size:14px;color:var(--text);margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid var(--line2)}
+    .icon-card span{font-size:13px;color:var(--text-secondary);line-height:1.6}
+    .list-ico{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;margin-right:8px;flex-shrink:0;vertical-align:middle;color:var(--accent)}
+    .list-ico svg{width:100%;height:100%}
+    .glossary{background:var(--bg-subtle);border:1px solid var(--line);border-radius:8px;padding:28px 32px}
+    .glossary-list{display:grid;gap:14px}
+    .glossary-item{display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:start;font-size:14px}
+    .glossary-item dt{font-weight:600;color:var(--text);margin:0}
+    .glossary-item dd{margin:0;color:var(--text-secondary);line-height:1.7}
+    a{color:var(--accent);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--accent-hover)}
+    .cta-box{text-align:center;margin-top:48px;padding:40px 24px;background:var(--bg-subtle);border-radius:4px}
+    .cta-box a{display:inline-block;padding:16px 32px;background:var(--accent);color:#fff;font-weight:600;font-size:15px;border-radius:8px;text-decoration:none;transition:all .25s;box-shadow:var(--shadow-accent)}
+    .cta-box a:hover{background:var(--accent-hover);color:#fff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.35)}
+    .demo-cta-wrap{text-align:center;margin-bottom:8px}
+    .demo-cta-btn{display:inline-block;padding:14px 28px;background:var(--accent);color:#fff;font-weight:600;font-size:15px;border-radius:8px;text-decoration:none;transition:all .25s;box-shadow:var(--shadow-accent)}
+    .demo-cta-btn:hover{background:var(--accent-hover);color:#fff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.35)}
+    .demo-cta-btn--core{background:#059669;box-shadow:0 4px 14px rgba(5,150,105,.3)}
+    .demo-cta-btn--core:hover{background:#047857;box-shadow:0 6px 20px rgba(5,150,105,.4)}
+    .site-footer{background:var(--bg-subtle);border-top:1px solid var(--line);margin-top:80px}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:40px 24px 32px}
+    .footer-main{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid var(--line2)}
+    .footer-brand{font-family:var(--font-serif);font-weight:600;font-size:16px;letter-spacing:.04em;color:var(--text)}
+    .footer-links{display:flex;gap:24px}
+    .footer-links a{font-size:13px;color:var(--muted)}
+    .footer-links a:hover{color:var(--accent)}
+    .footer-bottom{margin-top:24px}
+    .copyright{font-size:12px;color:var(--muted)}
+    .hamburger{display:none;flex-direction:column;gap:6px;padding:8px;cursor:pointer;background:none;border:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--text)}
+    .nav-mobile{display:none;position:fixed;top:0;right:0;bottom:0;width:280px;background:#fff;box-shadow:-4px 0 20px rgba(0,0,0,.1);z-index:200;padding:80px 24px 24px;flex-direction:column;gap:8px}
+    body.nav-open .nav-mobile{display:flex}
+    body.nav-open .nav-overlay{display:block}
+    body.nav-open{overflow:hidden}
+    .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:199}
+    .pagetop{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:20px;box-shadow:var(--shadow-accent);z-index:90;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s,transform .2s}
+    .pagetop.visible{opacity:1;visibility:visible}
+    .pagetop:hover{background:var(--accent-hover);color:#fff;transform:translateY(-2px)}
+    @media (max-width:720px){
+      .header-inner{padding:16px 18px}
+      .hero{padding:48px 18px 40px}
+      .main{padding:0 18px 56px}
+      .package-card,.intro-card,.terms-block,.glossary{padding:20px}
+      .icon-cards{grid-template-columns:1fr}
+      .glossary-item{grid-template-columns:1fr}
+      .glossary-item dt{margin-bottom:4px}
+      .nav{display:none}
+      .hamburger{display:flex}
+    }
+  </style>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <div class="logo"><img src="logo.png" alt="株式会社むぅ&もも"></div>
+        <div class="brand-text">
+          <div class="brand-name">株式会社むぅ&もも</div>
+          <div class="brand-en">mu & momo, Inc.</div>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="index.html#top">トップ</a>
+        <span class="nav-divider"></span>
+        <a href="app.html">Miora</a>
+        <span class="nav-divider"></span>
+        <a href="startup.html" class="active">Web制作</a>
+        <span class="nav-divider"></span>
+        <a href="index.html#profile">会社概要</a>
+        <span class="nav-divider"></span>
+        <a href="app.html#contact">お問い合わせ</a>
+      </nav>
+      <button class="hamburger" type="button" aria-label="メニューを開く" onclick="document.body.classList.toggle('nav-open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="nav-overlay" onclick="document.body.classList.remove('nav-open')"></div>
+  <nav class="nav-mobile">
+    <button class="nav-close" type="button" aria-label="閉じる" onclick="document.body.classList.remove('nav-open')">×</button>
+    <a href="index.html" onclick="document.body.classList.remove('nav-open')">トップ</a>
+    <a href="app.html" onclick="document.body.classList.remove('nav-open')">Miora</a>
+    <a href="startup.html" onclick="document.body.classList.remove('nav-open')">Web制作</a>
+    <a href="index.html#profile" onclick="document.body.classList.remove('nav-open')">会社概要</a>
+    <a href="app.html#contact" onclick="document.body.classList.remove('nav-open')">お問い合わせ</a>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-label">FOR STARTUPS</p>
+    <h1>スタートアップ成長支援 Web制作</h1>
+    <p class="hero-desc">
+      創業〜シリーズA前のスタートアップを対象に、公式サイト制作と運用支援を提供します。ブランド設計・CV導線・計測設計を重視した設計型制作で、成長の土台をつくります。
+    </p>
+    <p style="margin-top:16px;font-size:14px;color:var(--muted);">専門用語がわからなくても大丈夫。何をするか・なぜ必要か、一緒に整理します。</p>
+  </section>
+
+  <main class="main">
+    <section class="section" id="about">
+      <h2 class="section-title">こんな方に</h2>
+      <div class="icon-cards">
+        <div class="icon-card">
+          <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L4 14h6l-2 8 10-10h-6l2-8z"/></svg></div>
+          <strong>創業したばかり</strong>
+          <span>会社の顔になる公式サイトを、ゼロから一緒につくりたい</span>
+        </div>
+        <div class="icon-card">
+          <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/></svg></div>
+          <strong>情報を一本化したい</strong>
+          <span>サービス紹介・問い合わせをひとつのサイトにまとめたい</span>
+        </div>
+        <div class="icon-card">
+          <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l5-5 4 4 9-9"/><path d="M21 10v7H14"/></svg></div>
+          <strong>問い合わせを増やしたい</strong>
+          <span>見た人が「申し込みたい」と思う導線を設計したい</span>
+        </div>
+        <div class="icon-card">
+          <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14v4M11 10v8M15 6v12M19 2v16"/></svg></div>
+          <strong>データで改善したい</strong>
+          <span>アクセスや成約を計測して、サイトを育てていきたい</span>
+        </div>
+      </div>
+
+      <h2 class="section-title">サービス概要</h2>
+      <div class="intro-card">
+        <p>当社は、創業〜シリーズA前のスタートアップを対象に、Webサイト制作および運用支援を提供しています。</p>
+        <p><strong>スタートアップ向け</strong>の内容は以下のとおりです。</p>
+        <ul>
+          <li>制作費：120万円〜220万円（税別）</li>
+          <li>ブランド設計・コピー設計・CV導線設計・計測設計・UI設計・改善提案</li>
+          <li>月額伴走：5万円〜（公開後の改善を継続サポート）</li>
+        </ul>
+        <p>AIを活用した効率的な制作体制により、高品質かつ設計重視型の制作を実現しています。補助金活用可能な提案も行います。</p>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <h2 class="section-title">パッケージ</h2>
+      <p style="margin:-8px 0 24px;font-size:14px;color:var(--text-secondary);">予算と「やりたいこと」に合わせて選べる3段階。まずは Launch から始める方が多いです。</p>
+
+      <div class="package-card pkg-launch">
+        <h3>むぅ＆もも Launch Package</h3>
+        <p class="package-price">制作費 1,200,000円（税別）</p>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">「ちゃんとした公式サイトが欲しい」に応えるスタートプラン</p>
+        <ul>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>ブランド設計セッション（会社の色・トーンを決める）</li>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>競合詳細分析・ポジショニング設計・ペルソナ設計</li>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>サイトマップ・ワイヤーフレーム（構成とレイアウトの設計）</li>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>トップ＋5ページ設計・CV導線設計・コピー設計・UI設計</li>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>レスポンシブ実装・基本アニメーション（スマホ対応・動き）</li>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>GA4設置・イベント計測設計・公開</li>
+        </ul>
+        <p class="demo-cta-wrap" style="margin-top:20px;margin-bottom:0;">
+          <a href="launch-demo/index.html" target="_blank" rel="noopener" class="demo-cta-btn">デモを見てみる</a>
+        </p>
+      </div>
+
+      <div class="package-card pkg-core">
+        <h3>むぅ＆もも Core Package</h3>
+        <p class="package-price">制作費 1,600,000円（税別）</p>
+        <p class="adds">Launch内容に加えて：</p>
+        <ul>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>高度UIアニメーション</li>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>ヒートマップ設置（どこがよく見られているか可視化）</li>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>コンバージョン最適化設計・A/Bテスト設計</li>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>初月改善レポート・ユーザーフロー改善提案</li>
+        </ul>
+        <p class="demo-cta-wrap" style="margin-top:20px;margin-bottom:0;">
+          <a href="launch-demo/animation-demo.html" target="_blank" rel="noopener" class="demo-cta-btn demo-cta-btn--core">高度UIアニメーション デモを見る</a>
+        </p>
+      </div>
+
+      <div class="package-card pkg-scale">
+        <h3>むぅ＆もも Scale Package</h3>
+        <p class="package-price">制作費 2,200,000円〜（税別）</p>
+        <p class="adds">Core内容に加えて：</p>
+        <ul>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>会員機能・ダッシュボード・管理画面</li>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>API連携（他サービスとデータ連携）</li>
+          <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>高度計測設計・KPI設計</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="options">
+      <h2 class="section-title">追加オプション（スタートアップ）</h2>
+      <ul class="option-list option-list-ico">
+        <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span><span>独自ドメイン取得・設定</span><span class="price">実費＋設定費 10,000円〜</span></li>
+        <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span><span>ドメイン保守</span><span class="price">更新代行・管理 要相談</span></li>
+        <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span><span>ブランド戦略詳細設計</span><span class="price">150,000円</span></li>
+        <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span><span>フルコピーライティング</span><span class="price">200,000円</span></li>
+        <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span><span>LP制作（1ページ訴求用）</span><span class="price">200,000円〜</span></li>
+        <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span><span>動画埋込設計</span><span class="price">50,000円</span></li>
+        <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span><span>プロダクトUI改善設計</span><span class="price">150,000円</span></li>
+      </ul>
+    </section>
+
+    <section class="section" id="support">
+      <h2 class="section-title">月額伴走支援・スタートアップ保守</h2>
+      <p style="margin:-8px 0 16px;font-size:14px;color:var(--text-secondary);">サイト公開後も、運用から改善まで。一番安いプランはサーバー管理のみの2万円/月から。5万円/月以上のプランには Google Workspace（実費＋管理費）を組み込み。ドメインメール取得・保守はライトプランから標準で含みます。</p>
+      <div class="support-row plan-server">
+        <div>
+          <div class="support-name"><span class="list-ico" style="width:18px;height:18px;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>サーバー管理</div>
+          <div class="support-price">20,000円／月</div>
+          <div class="support-desc">スタートアップ保守。サーバー・ドメインの管理のみ。独自ドメイン未取得の場合は<a href="app.html#contact">お問い合わせ</a>にて取得・設定のご案内をします。</div>
+        </div>
+      </div>
+      <div class="support-row plan-light">
+        <div>
+          <div class="support-name"><span class="list-ico" style="width:18px;height:18px;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>ライトプラン</div>
+          <div class="support-price">50,000円／月</div>
+          <div class="support-desc">月1改善MTG・数値レポート・軽微修正。Google Workspace（実費＋管理費）組み込み。ドメインメール取得・保守は標準で含みます。</div>
+        </div>
+      </div>
+      <div class="support-row plan-standard">
+        <div>
+          <div class="support-name"><span class="list-ico" style="width:18px;height:18px;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>スタンダード</div>
+          <div class="support-price">80,000円／月</div>
+          <div class="support-desc">改善提案・UI改善・仮説検証設計・A/Bテスト管理。Google Workspace・ドメインメール取得・保守は標準で含みます。</div>
+        </div>
+      </div>
+      <div class="support-row plan-growth">
+        <div>
+          <div class="support-name"><span class="list-ico" style="width:18px;height:18px;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>グロースパートナー</div>
+          <div class="support-price">150,000円／月〜</div>
+          <div class="support-desc">KPI設計・改善実装・広告連携設計・CVR最適化。Google Workspace・ドメインメール取得・保守は標準で含みます。</div>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:14px;color:var(--text-secondary);">このほか、分析レポート単発 30,000円もご用意しています。</p>
+    </section>
+
+    <section class="section" id="glossary">
+      <h2 class="section-title">用語解説</h2>
+      <p style="margin:-8px 0 20px;font-size:14px;color:var(--text-secondary);">よく出てくる言葉の意味です。不明な点はお気軽にご質問ください。</p>
+      <div class="glossary">
+        <dl class="glossary-list">
+          <div class="glossary-item">
+            <dt>ブランド設計</dt>
+            <dd>会社やサービスの「らしさ」（色・トーン・言葉遣い）を決めること。見た人にどう伝わるかを設計します。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>CV導線</dt>
+            <dd>コンバージョン（問い合わせ・申し込みなど「ゴール」）までユーザーを誘導する道筋の設計。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>ペルソナ</dt>
+            <dd>「どんな人に届けたいか」を具体的な架空の人物像にしたもの。文案や構成の判断基準になります。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>サイトマップ</dt>
+            <dd>サイト内にどんなページをいくつ作るかの一覧・構成図。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>ワイヤーフレーム</dt>
+            <dd>各ページのレイアウト（どこに何を置くか）を線や四角で示した設計図。デザインの前段階です。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>GA4</dt>
+            <dd>Google Analytics 4。サイトへのアクセス数・どのページがよく見られているかなどを計測する無料ツール。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>ヒートマップ</dt>
+            <dd>ページの「どこがよく見られているか・どこがクリックされているか」を色で可視化したもの。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>A/Bテスト</dt>
+            <dd>2パターンのデザインや文言を出し分けて、どちらが成果が出やすいか比較して検証すること。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>KPI</dt>
+            <dd>Key Performance Indicator。達成度を測るための「重要な数値目標」（例：問い合わせ数、成約率）。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>CVR</dt>
+            <dd>コンバージョン率。訪問者のうち、問い合わせ・申し込みなどゴールに至った割合。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>LP</dt>
+            <dd>ランディングページ。1本のページで訴求して、申し込みや問い合わせにつなげる形式のページ。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>レスポンシブ</dt>
+            <dd>PC・スマホ・タブレットなど画面サイズに合わせて表示が最適化される作り方。</dd>
+          </div>
+          <div class="glossary-item">
+            <dt>API連携</dt>
+            <dd>外部のサービス（決済・CRM・会員システムなど）とデータのやり取りができるようにつなぐこと。</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" id="terms">
+      <h2 class="section-title">共通支払い条件・納期</h2>
+      <div class="terms-block">
+        <h3>制作費</h3>
+        <p>着手時50％／公開前50％</p>
+      </div>
+      <div class="terms-block">
+        <h3>納期</h3>
+        <p>4〜8週間</p>
+      </div>
+      <div class="terms-block">
+        <h3>修正</h3>
+        <p>2回まで無料</p>
+      </div>
+    </section>
+
+    <div class="cta-box">
+      <p style="margin:0 0 16px;color:var(--text-secondary);">お見積り・ご相談はお気軽にどうぞ</p>
+      <a href="app.html#contact">お問い合わせ</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-main">
+        <div class="footer-brand">株式会社むぅ&もも</div>
+        <div class="footer-links">
+          <a href="index.html">トップ</a>
+          <a href="app.html">Miora</a>
+          <a href="startup.html">Web制作</a>
+          <a href="index.html#profile">会社概要</a>
+          <a href="app.html#contact">お問い合わせ</a>
+          <a href="mailto:info@mu-and-momo.com">メールでお問い合わせ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">© <span id="y"></span> mu & momo, Inc. All Rights Reserved.</p>
+        <p class="copyright" style="margin-top:8px;">インターネット異性紹介事業届出済　受理番号：志村26-019698（届出日：令和8年2月27日）</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="pagetop" type="button" aria-label="ページトップへ" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    window.addEventListener('scroll',function(){document.querySelector('.pagetop').classList.toggle('visible',window.scrollY>400)});
+  </script>
+</body>
+</html>

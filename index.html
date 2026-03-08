@@ -25,18 +25,20 @@
 
   <style>
     :root{
-      --bg:#ffffff;
-      --bg-subtle:#f8fafc;
+      --bg:#f8fafc;
+      --bg-subtle:#f1f5f9;
       --bg-elevated:#ffffff;
       --card:#ffffff;
-      --text:#1a1d21;
-      --text-secondary:#4b5563;
-      --muted:#6b7280;
-      --accent:#1e40af;
-      --accent-hover:#1e3a8a;
-      --line:#e5e7eb;
-      --line2:#f3f4f6;
-      --shadow:0 1px 3px rgba(0,0,0,.06);
+      --text:#0f172a;
+      --text-secondary:#475569;
+      --muted:#64748b;
+      --accent:#2563eb;
+      --accent-hover:#1d4ed8;
+      --accent-soft:rgba(37,99,235,.08);
+      --line:#e2e8f0;
+      --line2:#f1f5f9;
+      --shadow:0 1px 3px rgba(0,0,0,.08);
+      --shadow-accent:0 4px 14px rgba(37,99,235,.25);
       --font-serif:'Noto Serif JP',Georgia,serif;
       --font-sans:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
     }
@@ -57,7 +59,7 @@
       position:sticky;
       top:0;
       z-index:100;
-      background:rgba(255,255,255,.96);
+      background:rgba(255,255,255,.97);
       backdrop-filter:blur(12px);
       -webkit-backdrop-filter:blur(12px);
       border-bottom:1px solid var(--line);
@@ -88,7 +90,7 @@
       height:48px;
       border-radius:12px;
       overflow:hidden;
-      background:#fff;
+      background:var(--bg-elevated);
       flex-shrink:0;
       border:1px solid var(--line);
     }
@@ -149,10 +151,11 @@
     .hero h1{
       font-family:var(--font-serif);
       font-weight:600;
-      font-size:clamp(28px,4vw,40px);
+      font-size:clamp(28px,4vw,42px);
       letter-spacing:.06em;
       margin:0 0 16px;
       line-height:1.4;
+      color:var(--text);
     }
     .hero-desc{
       max-width:560px;
@@ -178,13 +181,15 @@
       letter-spacing:.06em;
       margin:0 0 20px;
       padding-bottom:12px;
-      border-bottom:1px solid var(--line);
+      border-bottom:3px solid var(--accent);
+      color:var(--text);
     }
 
     .greeting-card{
       background:var(--card);
       border:1px solid var(--line);
-      border-radius:4px;
+      border-left:4px solid var(--accent);
+      border-radius:8px;
       padding:48px 48px 40px;
       margin-bottom:48px;
       box-shadow:var(--shadow);
@@ -330,7 +335,7 @@
 
     .hamburger{display:none;flex-direction:column;gap:6px;padding:8px;cursor:pointer;background:none;border:none}
     .hamburger span{display:block;width:24px;height:2px;background:var(--text)}
-    .nav-mobile{display:none;position:fixed;top:0;right:0;bottom:0;width:280px;background:#fff;box-shadow:-4px 0 20px rgba(0,0,0,.1);z-index:200;padding:80px 24px 24px;flex-direction:column;gap:8px}
+    .nav-mobile{display:none;position:fixed;top:0;right:0;bottom:0;width:280px;background:var(--bg-elevated);box-shadow:-4px 0 20px rgba(0,0,0,.1);z-index:200;padding:80px 24px 24px;flex-direction:column;gap:8px}
     body.nav-open .nav-mobile{display:flex}
     body.nav-open .nav-overlay{display:block}
     body.nav-open{overflow:hidden}
@@ -338,11 +343,11 @@
     .nav-close{position:absolute;top:20px;right:20px;width:40px;height:40px;padding:0;background:none;border:none;cursor:pointer;font-size:24px;color:var(--muted)}
     .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:199}
     .nav-overlay.open{display:block}
-    .cta-miora{display:inline-block;margin-top:24px;padding:16px 32px;background:var(--accent);color:#fff;font-weight:600;font-size:15px;border-radius:6px;text-decoration:none;transition:background .2s}
-    .cta-miora:hover{background:var(--accent-hover);color:#fff}
-    .pagetop{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:20px;box-shadow:0 4px 12px rgba(30,64,175,.3);z-index:90;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+    .cta-miora{display:inline-block;margin-top:24px;padding:16px 32px;background:var(--accent);color:#fff;font-weight:600;font-size:15px;border-radius:8px;text-decoration:none;transition:all .25s;box-shadow:var(--shadow-accent)}
+    .cta-miora:hover{background:var(--accent-hover);color:#fff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.35)}
+    .pagetop{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:20px;box-shadow:var(--shadow-accent);z-index:90;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s,transform .2s}
     .pagetop.visible{opacity:1;visibility:visible}
-    .pagetop:hover{background:var(--accent-hover);color:#fff}
+    .pagetop:hover{background:var(--accent-hover);color:#fff;transform:translateY(-2px)}
     @media (max-width:720px){
       .header-inner{padding:16px 18px}
       .hero{padding:48px 18px 40px}
@@ -376,6 +381,8 @@
         <span class="nav-divider"></span>
         <a href="app.html">Miora</a>
         <span class="nav-divider"></span>
+        <a href="startup.html">Web制作</a>
+        <span class="nav-divider"></span>
         <a href="index.html#profile">会社概要</a>
         <span class="nav-divider"></span>
         <a href="app.html#contact">お問い合わせ</a>
@@ -390,6 +397,7 @@
     <button class="nav-close" type="button" aria-label="閉じる" onclick="document.body.classList.remove('nav-open')">×</button>
     <a href="index.html" onclick="document.body.classList.remove('nav-open')">トップ</a>
     <a href="app.html" onclick="document.body.classList.remove('nav-open')">Miora</a>
+    <a href="startup.html" onclick="document.body.classList.remove('nav-open')">Web制作</a>
     <a href="index.html#profile" onclick="document.body.classList.remove('nav-open')">会社概要</a>
     <a href="app.html#faq" onclick="document.body.classList.remove('nav-open')">よくある質問</a>
     <a href="app.html#contact" onclick="document.body.classList.remove('nav-open')">お問い合わせ</a>
@@ -458,14 +466,25 @@
         <tr>
           <th>事業内容</th>
           <td>
-            アプリケーション／ウェブサービスの企画・開発・運営<br>
-            デザインおよびマーケティング支援<br>
-            デジタルコンテンツサービス展開（Miora（ミオーラ））
+            (1) インターネットを利用したマッチングサービス、SNSプラットフォーム、コミュニティサービスの企画・開発・運営<br>
+            (2) スマートフォンアプリ、Webサービス、ソフトウェアの企画、開発、販売、保守および受託開発業務<br>
+            (3) 広告代理業およびインターネット広告、SNS広告の制作・運用・代行<br>
+            (4) デジタルコンテンツ（画像・動画・音声・テキスト・電子書籍等）の企画、制作、販売、配信<br>
+            (5) オンラインショップ、ECサイトの企画、制作、運営および商品販売<br>
+            (6) キャラクター、ロゴ、デザイン、イラスト等の制作・販売およびライセンス管理<br>
+            (7) セミナー、イベント、オンライン講座の企画・運営<br>
+            (8) 経営、IT、マーケティング、アプリ開発に関するコンサルティング業務<br>
+            (9) 求人、採用、キャリア支援、スタッフ育成支援サービス<br>
+            (10) 前各号に附帯または関連する一切の事業
           </td>
         </tr>
         <tr>
           <th>所在地</th>
           <td>〒174-0055　東京都板橋区泉町4番5号</td>
+        </tr>
+        <tr>
+          <th>取引先銀行</th>
+          <td>三井住友銀行 Trunk North支店、巣鴨信用金庫　志村支店</td>
         </tr>
         <tr>
           <th>お問い合わせ</th>
@@ -491,6 +510,7 @@
         <div class="footer-links">
           <a href="index.html">トップ</a>
           <a href="app.html">Miora</a>
+          <a href="startup.html">Web制作</a>
           <a href="index.html#profile">会社概要</a>
           <a href="app.html#contact">お問い合わせ</a>
           <a href="mailto:info@mu-and-momo.com">メールでお問い合わせ</a>
