@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web制作・サービス｜むぅ＆もも</title>
+  <meta name="description" content="スタートアップ向けWeb制作。Launch / Core / Scale の3パッケージ、追加オプション、月額伴走支援。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-body">
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">むぅ＆もも</a>
+      <nav class="nav">
+        <a href="index.html">トップ</a>
+        <a href="company.html">会社概要</a>
+        <a href="service.html">サービス</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="price.html">料金</a>
+        <a href="contact.html" class="btn-nav">お問い合わせ</a>
+      </nav>
+      <button type="button" class="menu-btn" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="drawer">
+      <a href="index.html">トップ</a>
+      <a href="company.html">会社概要</a>
+      <a href="service.html">サービス</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="price.html">料金</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <h1 class="page-title">Web制作</h1>
+      <p class="page-lead">Service</p>
+    </section>
+
+    <div class="page-content page-content--wide">
+      <h2 class="section-title">サービス概要</h2>
+      <p>
+        当社は、創業〜シリーズA前のスタートアップを対象に、Webサイト制作および運用支援を提供しています。
+      </p>
+      <p>
+        制作費：120万円〜220万円（税別）／ブランド設計・コピー設計・CV導線設計・計測設計・UI設計・改善提案／月額伴走：5万円〜（公開後の改善を継続サポート）。AIを活用した効率的な制作体制により、高品質かつ設計重視型の制作を実現しています。補助金活用可能な提案も行います。
+      </p>
+
+      <h2 class="section-title" id="packages">パッケージ</h2>
+      <p>予算と「やりたいこと」に合わせて選べる3段階。まずは Launch から始める方が多いです。</p>
+
+      <div class="package-detail" id="launch">
+        <h3 class="package-detail-title">むぅ＆もも Launch Package</h3>
+        <p class="package-detail-price">制作費 1,200,000円（税別）</p>
+        <p class="package-detail-catch">「ちゃんとした公式サイトが欲しい」に応えるスタートプラン</p>
+        <ul>
+          <li>ブランド設計セッション（会社の色・トーンを決める）</li>
+          <li>競合詳細分析・ポジショニング設計・ペルソナ設計</li>
+          <li>サイトマップ・ワイヤーフレーム（構成とレイアウトの設計）</li>
+          <li>トップ＋5ページ設計・CV導線設計・コピー設計・UI設計</li>
+          <li>レスポンシブ実装・基本アニメーション（スマホ対応・動き）</li>
+          <li>GA4設置・イベント計測設計・公開</li>
+        </ul>
+      </div>
+
+      <div class="package-detail" id="core">
+        <h3 class="package-detail-title">むぅ＆もも Core Package</h3>
+        <p class="package-detail-price">制作費 1,600,000円（税別）</p>
+        <p class="package-detail-catch">Launch内容に加えて：</p>
+        <ul>
+          <li>高度UIアニメーション　→ <a href="animation-demo.html" target="_blank" rel="noopener" class="inline-demo-link">デモを見る（こんな感じになります）</a></li>
+          <li>ヒートマップ設置（どこがよく見られているか可視化）</li>
+          <li>コンバージョン最適化設計・A/Bテスト設計</li>
+          <li>初月改善レポート・ユーザーフロー改善提案</li>
+        </ul>
+      </div>
+
+      <div class="package-detail" id="scale">
+        <h3 class="package-detail-title">むぅ＆もも Scale Package</h3>
+        <p class="package-detail-price">制作費 2,200,000円〜（税別）</p>
+        <p class="package-detail-catch">Core内容に加えて：</p>
+        <ul>
+          <li>会員機能・ダッシュボード・管理画面</li>
+          <li>API連携（他サービスとデータ連携）</li>
+          <li>高度計測設計・KPI設計</li>
+        </ul>
+      </div>
+
+      <h2 class="section-title">基本アニメーションと高度UIアニメーションの違い</h2>
+      <p>Launch の「基本」と Core の「高度」は、動きの種類・技術・仕様が次のように異なります。</p>
+      <table class="data-table comparison-table">
+        <tr><th>観点</th><th>基本（Launch）</th><th>高度（Core）</th></tr>
+        <tr><th>目的</th><td>情報がすっと入る・離脱を減らす</td><td>印象に残す・ブランドや訴求を伝える</td></tr>
+        <tr><th>表示の仕方</th><td>フェード＋軽い上スライドのみ。方向は「上から」だけ</td><td>左・右・下からスライド、スタッガー（順番に登場）、パララックス</td></tr>
+        <tr><th>ホバー・操作への反応</th><td>ボタンの色変化・ごく軽いずれ程度。カードは静的なまま</td><td>カードの3Dチルト、ボタンに光が流れる、浮き上がり・影の変化</td></tr>
+        <tr><th>その他の演出</th><td>なし</td><td>数値のカウントアップ、テキスト下線が伸びる、背景のゆっくりした動きなど</td></tr>
+        <tr><th>技術</th><td>CSSの transition ＋ 少ないJS（IntersectionObserverで表示制御）。実装はシンプル</td><td>スクロール・マウス連動、イージング・タイミングの設計。パフォーマンスとアクセシビリティの考慮あり</td></tr>
+      </table>
+      <p><a href="animation-demo.html" target="_blank" rel="noopener" class="inline-demo-link">高度UIアニメーションのデモを見る</a></p>
+
+      <h2 class="section-title">追加オプション（スタートアップ）</h2>
+      <table class="data-table">
+        <tr><th>独自ドメイン取得・設定</th><td>実費＋設定費 10,000円〜</td></tr>
+        <tr><th>ドメイン保守</th><td>更新代行・管理 要相談</td></tr>
+        <tr><th>ブランド戦略詳細設計</th><td>150,000円</td></tr>
+        <tr><th>フルコピーライティング</th><td>200,000円</td></tr>
+        <tr><th>LP制作（1ページ訴求用）</th><td>200,000円〜</td></tr>
+        <tr><th>動画埋込設計</th><td>50,000円</td></tr>
+        <tr><th>プロダクトUI改善設計</th><td>150,000円</td></tr>
+      </table>
+
+      <h2 class="section-title">月額伴走支援・スタートアップ保守</h2>
+      <p>サイト公開後も、運用から改善まで。一番安いプランはサーバー管理のみの2万円/月から。5万円/月以上のプランには Google Workspace（実費＋管理費）を組み込み。ドメインメール取得・保守はライトプランから標準で含みます。</p>
+      <table class="data-table">
+        <tr><th>サーバー管理</th><td>20,000円／月 — スタートアップ保守。サーバー・ドメインの管理のみ。独自ドメイン未取得の場合はお問い合わせにて取得・設定のご案内をします。</td></tr>
+        <tr><th>ライトプラン</th><td>50,000円／月 — 月1改善MTG・数値レポート・軽微修正。Google Workspace（実費＋管理費）組み込み。ドメインメール取得・保守は標準で含みます。</td></tr>
+        <tr><th>スタンダード</th><td>80,000円／月 — 改善提案・UI改善・仮説検証設計・A/Bテスト管理。Google Workspace・ドメインメール取得・保守は標準で含みます。</td></tr>
+        <tr><th>グロースパートナー</th><td>150,000円／月〜 — KPI設計・改善実装・広告連携設計・CVR最適化。Google Workspace・ドメインメール取得・保守は標準で含みます。</td></tr>
+      </table>
+      <p>このほか、分析レポート単発 30,000円もご用意しています。</p>
+
+      <h2 class="section-title">用語解説</h2>
+      <p>よく出てくる言葉の意味です。不明な点はお気軽にご質問ください。</p>
+      <dl class="glossary-list">
+        <dt>ブランド設計</dt>
+        <dd>会社やサービスの「らしさ」（色・トーン・言葉遣い）を決めること。見た人にどう伝わるかを設計します。</dd>
+        <dt>CV導線</dt>
+        <dd>コンバージョン（問い合わせ・申し込みなど「ゴール」）までユーザーを誘導する道筋の設計。</dd>
+        <dt>ペルソナ</dt>
+        <dd>「どんな人に届けたいか」を具体的な架空の人物像にしたもの。文案や構成の判断基準になります。</dd>
+        <dt>サイトマップ</dt>
+        <dd>サイト内にどんなページをいくつ作るかの一覧・構成図。</dd>
+        <dt>ワイヤーフレーム</dt>
+        <dd>各ページのレイアウト（どこに何を置くか）を線や四角で示した設計図。デザインの前段階です。</dd>
+        <dt>GA4</dt>
+        <dd>Google Analytics 4。サイトへのアクセス数・どのページがよく見られているかなどを計測する無料ツール。</dd>
+        <dt>ヒートマップ</dt>
+        <dd>ページの「どこがよく見られているか・どこがクリックされているか」を色で可視化したもの。</dd>
+        <dt>A/Bテスト</dt>
+        <dd>2パターンのデザインや文言を出し分けて、どちらが成果が出やすいか比較して検証すること。</dd>
+        <dt>KPI</dt>
+        <dd>Key Performance Indicator。達成度を測るための「重要な数値目標」（例：問い合わせ数、成約率）。</dd>
+        <dt>CVR</dt>
+        <dd>コンバージョン率。訪問者のうち、問い合わせ・申し込みなどゴールに至った割合。</dd>
+        <dt>LP</dt>
+        <dd>ランディングページ。1本のページで訴求して、申し込みや問い合わせにつなげる形式のページ。</dd>
+        <dt>レスポンシブ</dt>
+        <dd>PC・スマホ・タブレットなど画面サイズに合わせて表示が最適化される作り方。</dd>
+        <dt>API連携</dt>
+        <dd>外部のサービス（決済・CRM・会員システムなど）とデータのやり取りができるようにつなぐこと。</dd>
+      </dl>
+
+      <div class="flow-cta">
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-company">株式会社むぅ&amp;もも</p>
+      <nav class="footer-nav">
+        <a href="index.html">トップ</a>
+        <a href="service.html">Web制作</a>
+        <a href="company.html">会社概要</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+      <p class="footer-cta"><a href="mailto:info@mu-and-momo.com">メールでお問い合わせ</a></p>
+      <p class="footer-copy">&copy; 株式会社むぅ&amp;もも</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

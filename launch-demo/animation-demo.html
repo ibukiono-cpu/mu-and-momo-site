@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高度UIアニメーション デモ｜むぅ＆もも Core Package</title>
+  <meta name="description" content="Core Packageでご提供する高度UIアニメーションのデモ。スクロール連動・カード・テキスト演出のイメージをご覧いただけます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="animation-demo.css">
+</head>
+<body class="page-body anim-demo">
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">むぅ＆もも</a>
+      <nav class="nav">
+        <a href="index.html">トップ</a>
+        <a href="company.html">会社概要</a>
+        <a href="service.html">サービス</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="price.html">料金</a>
+        <a href="contact.html" class="btn-nav">お問い合わせ</a>
+      </nav>
+      <button type="button" class="menu-btn" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="drawer">
+      <a href="index.html">トップ</a>
+      <a href="company.html">会社概要</a>
+      <a href="service.html">サービス</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="price.html">料金</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="anim-hero">
+      <div class="anim-hero-bg"></div>
+      <div class="anim-hero-inner">
+        <p class="anim-hero-label">Core Package デモ</p>
+        <h1 class="anim-hero-title">高度UIアニメーション</h1>
+        <p class="anim-hero-lead">基本と違う「目で見てわかる」動きの例です。スクロール＆ホバーでお確かめください。</p>
+      </div>
+    </section>
+
+    <section class="anim-section" id="scroll-reveal">
+      <h2 class="anim-section-title" data-anim-reveal>① 左右からスライドイン＋スタッガー</h2>
+      <p class="anim-section-lead" data-anim-reveal>基本は「上からだけ」。ここは<strong>左・中央・右</strong>から順番に登場します。</p>
+      <div class="anim-reveal-grid">
+        <div class="anim-reveal-item anim-reveal-from-left" data-anim-reveal><span>01</span> 左からスライドイン</div>
+        <div class="anim-reveal-item anim-reveal-from-bottom" data-anim-reveal><span>02</span> 下から（0.4秒遅れ）</div>
+        <div class="anim-reveal-item anim-reveal-from-right" data-anim-reveal><span>03</span> 右からスライドイン</div>
+      </div>
+    </section>
+
+    <section class="anim-section anim-section--alt">
+      <h2 class="anim-section-title" data-anim-reveal>② カードの3Dチルト（ホバーで傾く）</h2>
+      <p class="anim-section-lead" data-anim-reveal>基本はホバーなし。ここは<strong>マウスに追従してカードが傾きます</strong>。</p>
+      <div class="anim-cards" id="tilt-cards">
+        <div class="anim-card anim-card--tilt" data-anim-reveal data-tilt>
+          <div class="anim-card-icon">A</div>
+          <h3>カードに乗せて</h3>
+          <p>ポインタの位置で傾きが変わります。</p>
+        </div>
+        <div class="anim-card anim-card--tilt" data-anim-reveal data-tilt>
+          <div class="anim-card-icon">B</div>
+          <h3>3Dっぽい動き</h3>
+          <p>高度パッケージならこんな演出が可能。</p>
+        </div>
+        <div class="anim-card anim-card--tilt" data-anim-reveal data-tilt>
+          <div class="anim-card-icon">C</div>
+          <h3>目を引くUI</h3>
+          <p>離すと元に戻ります。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="anim-section">
+      <h2 class="anim-section-title" data-anim-reveal>③ テキスト＋下線が伸びる演出</h2>
+      <p class="anim-section-lead" data-anim-reveal>基本はフェードのみ。ここは<strong>下線が左から右に描かれる</strong>演出です。</p>
+      <p class="anim-line anim-line-underline" data-anim-line>重要なメッセージは、<br>こうした演出で目を引けます。</p>
+    </section>
+
+    <section class="anim-section anim-section--parallax anim-section--alt">
+      <h2 class="anim-section-title" data-anim-reveal>④ パララックス（スクロールで奥が遅れて動く）</h2>
+      <p class="anim-section-lead" data-anim-reveal>手前と奥の要素が<strong>違う速度で動く</strong>＝奥行き感が出ます。スクロールしてみてください。</p>
+      <div class="anim-parallax">
+        <div class="anim-parallax-layer anim-parallax-back" data-parallax-speed="0.3">奥</div>
+        <div class="anim-parallax-layer anim-parallax-mid" data-parallax-speed="0.6">中間</div>
+        <div class="anim-parallax-layer anim-parallax-front" data-parallax-speed="1">手前</div>
+      </div>
+    </section>
+
+    <section class="anim-section anim-section--alt">
+      <h2 class="anim-section-title" data-anim-reveal>⑤ 数値が0からカウントアップ</h2>
+      <p class="anim-section-lead" data-anim-reveal>基本には<strong>ありません</strong>。画面に入ると数字が0から増えていきます。</p>
+      <div class="anim-counters">
+        <div class="anim-counter-block">
+          <span class="anim-counter" data-anim-counter data-target="120">0</span>
+          <span class="anim-counter-unit">%</span>
+        </div>
+        <div class="anim-counter-block">
+          <span class="anim-counter" data-anim-counter data-target="98">0</span>
+          <span class="anim-counter-unit">件</span>
+        </div>
+        <div class="anim-counter-block">
+          <span class="anim-counter" data-anim-counter data-target="15">0</span>
+          <span class="anim-counter-unit">秒</span>
+        </div>
+      </div>
+      <p class="anim-counters-label">※ サンプル・単位はイメージです</p>
+    </section>
+
+    <section class="anim-section">
+      <h2 class="anim-section-title" data-anim-reveal>⑥ ボタンに光が流れる（ホバー）</h2>
+      <p class="anim-section-lead" data-anim-reveal>基本は色が変わるだけ。ここは<strong>ホバーで光の帯が流れます</strong>。</p>
+      <div class="anim-buttons" data-anim-reveal>
+        <a href="service.html#core" class="anim-btn anim-btn--shine">Core Package を見る</a>
+        <a href="contact.html" class="anim-btn anim-btn--outline">お問い合わせ</a>
+      </div>
+    </section>
+
+    <section class="anim-cta">
+      <p>本格的な動きは、お客様のサイトのトーンに合わせて設計します。</p>
+      <a href="service.html" class="flow-cta"><span>サービス一覧に戻る</span></a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-company">株式会社むぅ&amp;もも</p>
+      <nav class="footer-nav">
+        <a href="index.html">トップ</a>
+        <a href="service.html">Web制作</a>
+        <a href="company.html">会社概要</a>
+        <a href="contact.html">お問い合わせ</a>
+      </nav>
+      <p class="footer-cta"><a href="mailto:info@mu-and-momo.com">メールでお問い合わせ</a></p>
+      <p class="footer-copy">&copy; 株式会社むぅ&amp;もも</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="animation-demo.js"></script>
+</body>
+</html>

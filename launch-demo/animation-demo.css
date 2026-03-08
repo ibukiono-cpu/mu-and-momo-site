@@ -1,0 +1,439 @@
+/* ========================================
+   高度UIアニメーション デモ（Core Package）
+   目で見てわかる「基本との違い」
+   ======================================== */
+
+.anim-demo {
+  --anim-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --anim-duration: 0.7s;
+}
+
+/* Hero：背景がゆっくり動く（基本にはない） */
+.anim-hero {
+  position: relative;
+  padding: 6rem 1.5rem 4rem;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.anim-hero-bg {
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(135deg, var(--color-accent-light) 0%, transparent 40%, #f5e6dc 70%, var(--color-accent-light) 100%);
+  background-size: 200% 200%;
+  animation: heroBgShift 12s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+.anim-hero-inner {
+  position: relative;
+  max-width: 560px;
+}
+
+@keyframes heroBgShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.anim-hero-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  margin: 0 0 0.75rem;
+}
+
+.anim-hero-title {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 1rem;
+  letter-spacing: 0.02em;
+}
+
+.anim-hero-lead {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Section */
+.anim-section {
+  padding: 4rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.anim-section--alt {
+  background: var(--color-surface);
+  margin: 0;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.anim-section-title {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.anim-section-lead {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0 0 2rem;
+}
+
+.anim-section-lead strong {
+  color: var(--color-accent-dark);
+}
+
+/* ① 左右・下からスライドイン（スタッガー長め） */
+.anim-reveal-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.anim-reveal-item {
+  padding: 1.25rem 1.5rem;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+  transition: opacity var(--anim-duration) var(--anim-ease), transform var(--anim-duration) var(--anim-ease);
+}
+
+.anim-reveal-from-left {
+  opacity: 0;
+  transform: translateX(-80px);
+}
+
+.anim-reveal-from-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.anim-reveal-from-bottom {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.anim-reveal-from-bottom.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.anim-reveal-from-right {
+  opacity: 0;
+  transform: translateX(80px);
+}
+
+.anim-reveal-from-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.8s;
+}
+
+.anim-reveal-item span {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-right: 0.5rem;
+}
+
+/* ② カード3Dチルト用 */
+.anim-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  perspective: 800px;
+}
+
+.anim-card {
+  padding: 1.5rem;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 12px rgba(44, 42, 40, 0.04);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--anim-duration) var(--anim-ease),
+              transform 0.4s var(--anim-ease),
+              box-shadow 0.4s var(--anim-ease);
+}
+
+.anim-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anim-card--tilt {
+  transform-style: preserve-3d;
+}
+
+.anim-card--tilt:hover {
+  box-shadow: 0 20px 48px rgba(44, 42, 40, 0.18);
+}
+
+.anim-card-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-light);
+  color: var(--color-accent-dark);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.anim-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.anim-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ③ テキスト＋下線が伸びる */
+.anim-line {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s var(--anim-ease), transform 0.7s var(--anim-ease);
+}
+
+.anim-line.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anim-line-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.anim-line-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  border-radius: 2px;
+  transition: width 0.8s var(--anim-ease);
+}
+
+.anim-line-underline.is-visible::after {
+  width: 100%;
+}
+
+/* ④ パララックス */
+.anim-section--parallax {
+  max-width: 100%;
+}
+
+.anim-parallax {
+  position: relative;
+  height: 220px;
+  margin: 2rem 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, #f0ebe6 0%, #e8e0d8 100%);
+}
+
+.anim-parallax-layer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.1s linear;
+}
+
+.anim-parallax-back {
+  width: 120px;
+  text-align: center;
+  background: var(--color-accent-light);
+  color: var(--color-accent-dark);
+}
+
+.anim-parallax-mid {
+  width: 140px;
+  text-align: center;
+  background: var(--color-surface);
+  border: 2px solid var(--color-accent);
+}
+
+.anim-parallax-front {
+  width: 160px;
+  text-align: center;
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ⑤ カウントアップ（単位付き） */
+.anim-counters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.anim-counter-block {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.anim-counter {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+  min-width: 3rem;
+  text-align: right;
+  display: inline-block;
+}
+
+.anim-counter-unit {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.anim-counters-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: 0;
+}
+
+/* ⑥ ボタン・光が流れる */
+.anim-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--anim-duration) var(--anim-ease), transform var(--anim-duration) var(--anim-ease);
+}
+
+.anim-buttons.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anim-btn {
+  position: relative;
+  display: inline-block;
+  padding: 0.9rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  overflow: hidden;
+  transition: transform 0.3s var(--anim-ease), box-shadow 0.3s var(--anim-ease);
+}
+
+.anim-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 28px rgba(201, 123, 99, 0.4);
+}
+
+.anim-btn--shine {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.anim-btn--shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.anim-btn--shine:hover::after {
+  left: 100%;
+}
+
+.anim-btn--outline {
+  background: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.anim-btn--outline:hover {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(44, 42, 40, 0.15);
+}
+
+/* Stagger */
+.anim-card:nth-child(1).is-visible { transition-delay: 0s; }
+.anim-card:nth-child(2).is-visible { transition-delay: 0.12s; }
+.anim-card:nth-child(3).is-visible { transition-delay: 0.24s; }
+
+/* CTA */
+.anim-cta {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.anim-cta p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.25rem;
+}
+
+.anim-cta .flow-cta {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .anim-hero {
+    padding: 4rem 1rem 3rem;
+    min-height: 50vh;
+  }
+
+  .anim-section,
+  .anim-section--alt {
+    padding: 3rem 1rem;
+  }
+
+  .anim-parallax {
+    height: 180px;
+  }
+
+  .anim-parallax-layer {
+    font-size: 0.95rem;
+    padding: 0.75rem 1.25rem;
+  }
+}
