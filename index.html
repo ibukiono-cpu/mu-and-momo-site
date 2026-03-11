@@ -41,6 +41,8 @@
       --shadow-accent:0 4px 14px rgba(37,99,235,.25);
       --font-serif:'Noto Serif JP',Georgia,serif;
       --font-sans:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+      --anim-ease:cubic-bezier(0.22,1,0.36,1);
+      --anim-duration:0.65s;
     }
 
     *{box-sizing:border-box}
@@ -136,10 +138,25 @@
     }
 
     .hero{
+      position:relative;
       max-width:1100px;
       margin:0 auto;
       padding:72px 24px 56px;
       text-align:center;
+      overflow:hidden;
+    }
+    .hero-bg{
+      position:absolute;
+      inset:-25%;
+      background:linear-gradient(135deg, var(--accent-soft) 0%, transparent 45%, rgba(241,245,249,.9) 70%, var(--accent-soft) 100%);
+      background-size:200% 200%;
+      animation:heroBgShift 14s ease-in-out infinite;
+      opacity:0.6;
+    }
+    .hero-inner{position:relative;z-index:1}
+    @keyframes heroBgShift{
+      0%,100%{background-position:0% 50%}
+      50%{background-position:100% 50%}
     }
     .hero-label{
       font-size:11px;
@@ -181,8 +198,42 @@
       letter-spacing:.06em;
       margin:0 0 20px;
       padding-bottom:12px;
-      border-bottom:3px solid var(--accent);
+      border-bottom:1px solid var(--line2);
       color:var(--text);
+      position:relative;
+    }
+    .section-title::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:0;
+      height:3px;
+      background:var(--accent);
+      width:0;
+      transition:width var(--anim-duration) var(--anim-ease);
+    }
+    .section-title.is-visible::after{width:100%}
+    .anim-reveal{
+      opacity:0;
+      transform:translateY(32px);
+      transition:opacity var(--anim-duration) var(--anim-ease),transform var(--anim-duration) var(--anim-ease);
+    }
+    .anim-reveal.is-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .anim-reveal-from-left{opacity:0;transform:translateX(-48px);transition:opacity var(--anim-duration) var(--anim-ease),transform var(--anim-duration) var(--anim-ease)}
+    .anim-reveal-from-left.is-visible{opacity:1;transform:translateX(0)}
+    .anim-reveal-from-bottom{opacity:0;transform:translateY(40px);transition:opacity var(--anim-duration) var(--anim-ease),transform var(--anim-duration) var(--anim-ease)}
+    .anim-reveal-from-bottom.is-visible{opacity:1;transform:translateY(0);transition-delay:0.15s}
+    .anim-reveal-from-right{opacity:0;transform:translateX(48px);transition:opacity var(--anim-duration) var(--anim-ease),transform var(--anim-duration) var(--anim-ease)}
+    .anim-reveal-from-right.is-visible{opacity:1;transform:translateX(0);transition-delay:0.25s}
+    [data-tilt]{transition:transform .3s var(--anim-ease),box-shadow .3s var(--anim-ease);transform-style:preserve-3d}
+    @media (prefers-reduced-motion:reduce){
+      .hero-bg{animation:none}
+      .anim-reveal,.anim-reveal-from-left,.anim-reveal-from-bottom,.anim-reveal-from-right{opacity:1;transform:none;transition:none}
+      .anim-reveal.is-visible,.anim-reveal-from-left.is-visible,.anim-reveal-from-bottom.is-visible,.anim-reveal-from-right.is-visible{transition:none}
+      .section-title::after{width:100%;transition:none}
     }
 
     .greeting-card{
@@ -320,6 +371,9 @@
     }
     .footer-links a:hover{color:var(--accent)}
 
+    .footer-qr{margin-top:24px;padding-top:24px;border-top:1px solid var(--line2)}
+    .footer-qr p{margin:0 0 8px;font-size:12px;color:var(--muted)}
+    .footer-qr img{display:block;width:100px;height:100px}
     .footer-bottom{
       margin-top:24px;
       display:flex;
@@ -343,8 +397,11 @@
     .nav-close{position:absolute;top:20px;right:20px;width:40px;height:40px;padding:0;background:none;border:none;cursor:pointer;font-size:24px;color:var(--muted)}
     .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:199}
     .nav-overlay.open{display:block}
-    .cta-miora{display:inline-block;margin-top:24px;padding:16px 32px;background:var(--accent);color:#fff;font-weight:600;font-size:15px;border-radius:8px;text-decoration:none;transition:all .25s;box-shadow:var(--shadow-accent)}
+    .cta-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;align-items:center}
+    .cta-miora{display:inline-block;padding:16px 32px;background:var(--accent);color:#fff;font-weight:600;font-size:15px;border-radius:8px;text-decoration:none;transition:all .25s;box-shadow:var(--shadow-accent)}
     .cta-miora:hover{background:var(--accent-hover);color:#fff;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,99,235,.35)}
+    .cta-startup{display:inline-block;padding:16px 32px;background:transparent;color:var(--accent);font-weight:600;font-size:15px;border-radius:8px;text-decoration:none;border:2px solid var(--accent);transition:all .25s}
+    .cta-startup:hover{background:var(--accent-soft);color:var(--accent-hover);border-color:var(--accent-hover);transform:translateY(-2px)}
     .pagetop{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:20px;box-shadow:var(--shadow-accent);z-index:90;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s,transform .2s}
     .pagetop.visible{opacity:1;visibility:visible}
     .pagetop:hover{background:var(--accent-hover);color:#fff;transform:translateY(-2px)}
@@ -404,16 +461,19 @@
   </nav>
 
   <section class="hero">
-    <p class="hero-label">CORPORATE PROFILE</p>
-    <h1>会社概要</h1>
-    <p class="hero-desc">
-      株式会社むぅ&ももは、安心・安全を第一に、デジタルサービスの企画・開発・運営を通じて、お客様のビジネス価値を最大化します。
-    </p>
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="hero-label anim-reveal" data-anim-reveal>CORPORATE PROFILE</p>
+      <h1 class="anim-reveal" data-anim-reveal style="transition-delay:0.08s">会社概要</h1>
+      <p class="hero-desc anim-reveal" data-anim-reveal style="transition-delay:0.15s">
+        株式会社むぅ&ももは、安心・安全を第一に、デジタルサービスの企画・開発・運営を通じて、お客様のビジネス価値を最大化します。
+      </p>
+    </div>
   </section>
 
   <main class="main">
     <section class="section">
-      <div class="greeting-card">
+      <div class="greeting-card anim-reveal" data-anim-reveal>
         <h2>代表挨拶</h2>
         <div class="greeting-body">
           <p>
@@ -430,11 +490,14 @@
           </p>
         </div>
         <p class="greeting-sign">代表取締役　小野維吹</p>
-        <a href="app.html" class="cta-miora">Miora を詳しく見る</a>
+        <div class="cta-buttons">
+          <a href="app.html" class="cta-miora">Miora を詳しく見る</a>
+          <a href="startup.html" class="cta-startup">Web制作を詳しく見る</a>
+        </div>
       </div>
 
-      <h2 class="section-title" id="profile">会社情報</h2>
-      <div class="profile-block">
+      <h2 class="section-title anim-reveal" id="profile" data-anim-reveal>会社情報</h2>
+      <div class="profile-block anim-reveal anim-reveal-from-bottom" data-anim-reveal>
         <div class="profile-logo">
           <img src="company-logo.png" alt="株式会社むぅ&もも" />
         </div>
@@ -516,6 +579,10 @@
           <a href="mailto:info@mu-and-momo.com">メールでお問い合わせ</a>
         </div>
       </div>
+      <div class="footer-qr">
+        <p>このページのQRコード</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&amp;data=https%3A%2F%2Fmu-and-momo.com%2F" width="100" height="100" alt="https://mu-and-momo.com のQRコード">
+      </div>
       <div class="footer-bottom">
         <p class="copyright">© <span id="y"></span> mu & momo, Inc. All Rights Reserved.</p>
         <p class="copyright" style="margin-top:8px;">インターネット異性紹介事業届出済　受理番号：志村26-019698（届出日：令和8年2月27日）</p>
@@ -525,6 +592,7 @@
 
   <button class="pagetop" type="button" aria-label="ページトップへ" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+  <script src="anim.js"></script>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
     window.addEventListener('scroll',function(){document.querySelector('.pagetop').classList.toggle('visible',window.scrollY>400)});

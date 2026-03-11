@@ -936,6 +936,22 @@ img {
   text-decoration: underline;
 }
 
+.footer-qr {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line, #e5e7eb);
+}
+.footer-qr p {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+.footer-qr img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
 .footer-copy {
   font-size: 0.8rem;
   color: var(--color-text-muted);

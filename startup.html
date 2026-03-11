@@ -35,6 +35,8 @@
       --shadow-accent:0 4px 14px rgba(37,99,235,.25);
       --font-serif:'Noto Serif JP',Georgia,serif;
       --font-sans:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+      --anim-ease:cubic-bezier(0.22,1,0.36,1);
+      --anim-duration:0.65s;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -52,13 +54,32 @@
     .nav a{font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;transition:color .2s}
     .nav a:hover,.nav a.active{color:var(--accent)}
     .nav-divider{width:1px;height:14px;background:var(--line)}
-    .hero{max-width:1100px;margin:0 auto;padding:72px 24px 56px;text-align:center}
+    .hero{position:relative;max-width:1100px;margin:0 auto;padding:72px 24px 56px;text-align:center;overflow:hidden}
+    .hero-bg{position:absolute;inset:-25%;background:linear-gradient(135deg, var(--accent-soft) 0%, transparent 45%, rgba(241,245,249,.9) 70%, var(--accent-soft) 100%);background-size:200% 200%;animation:heroBgShift 14s ease-in-out infinite;opacity:0.6}
+    .hero-inner{position:relative;z-index:1}
+    @keyframes heroBgShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
     .hero-label{font-size:11px;font-weight:500;color:var(--accent);letter-spacing:.2em;margin-bottom:12px}
     .hero h1{font-family:var(--font-serif);font-weight:600;font-size:clamp(28px,4vw,40px);letter-spacing:.06em;margin:0 0 16px;line-height:1.4}
     .hero-desc{max-width:560px;margin:0 auto;font-size:15px;color:var(--text-secondary);line-height:1.9}
     .main{max-width:1100px;margin:0 auto;padding:0 24px 80px}
     .section{margin-bottom:56px}
-    .section-title{font-family:var(--font-serif);font-weight:600;font-size:20px;letter-spacing:.06em;margin:0 0 20px;padding-bottom:12px;border-bottom:3px solid var(--accent);color:var(--text)}
+    .section-title{font-family:var(--font-serif);font-weight:600;font-size:20px;letter-spacing:.06em;margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid var(--line2);color:var(--text);position:relative}
+    .section-title::after{content:'';position:absolute;left:0;bottom:0;height:3px;background:var(--accent);width:0;transition:width var(--anim-duration) var(--anim-ease)}
+    .section-title.is-visible::after{width:100%}
+    .anim-reveal{opacity:0;transform:translateY(32px);transition:opacity var(--anim-duration) var(--anim-ease),transform var(--anim-duration) var(--anim-ease)}
+    .anim-reveal.is-visible{opacity:1;transform:translateY(0)}
+    .anim-reveal-from-left{opacity:0;transform:translateX(-48px);transition:opacity var(--anim-duration) var(--anim-ease),transform var(--anim-duration) var(--anim-ease)}
+    .anim-reveal-from-left.is-visible{opacity:1;transform:translateX(0)}
+    .anim-reveal-from-bottom{opacity:0;transform:translateY(40px);transition:opacity var(--anim-duration) var(--anim-ease),transform var(--anim-duration) var(--anim-ease)}
+    .anim-reveal-from-bottom.is-visible{opacity:1;transform:translateY(0);transition-delay:0.12s}
+    .anim-reveal-from-right{opacity:0;transform:translateX(48px);transition:opacity var(--anim-duration) var(--anim-ease),transform var(--anim-duration) var(--anim-ease)}
+    .anim-reveal-from-right.is-visible{opacity:1;transform:translateX(0);transition-delay:0.2s}
+    [data-tilt]{transition:transform .3s var(--anim-ease),box-shadow .3s var(--anim-ease);transform-style:preserve-3d}
+    @media (prefers-reduced-motion:reduce){
+      .hero-bg{animation:none}
+      .anim-reveal,.anim-reveal-from-left,.anim-reveal-from-bottom,.anim-reveal-from-right{opacity:1;transform:none;transition:none}
+      .section-title::after{width:100%;transition:none}
+    }
     .intro-card{background:var(--bg-subtle);border:1px solid var(--line);border-radius:4px;padding:32px 40px;margin-bottom:40px}
     .intro-card p{margin:0 0 1em;font-size:15px;color:var(--text-secondary);line-height:1.9}
     .intro-card p:last-child{margin-bottom:0}
@@ -121,6 +142,9 @@
     .footer-links{display:flex;gap:24px}
     .footer-links a{font-size:13px;color:var(--muted)}
     .footer-links a:hover{color:var(--accent)}
+    .footer-qr{margin-top:24px;padding-top:24px;border-top:1px solid var(--line2)}
+    .footer-qr p{margin:0 0 8px;font-size:12px;color:var(--muted)}
+    .footer-qr img{display:block;width:100px;height:100px}
     .footer-bottom{margin-top:24px}
     .copyright{font-size:12px;color:var(--muted)}
     .hamburger{display:none;flex-direction:column;gap:6px;padding:8px;cursor:pointer;background:none;border:none}
@@ -183,42 +207,45 @@
   </nav>
 
   <section class="hero">
-    <p class="hero-label">FOR STARTUPS</p>
-    <h1>スタートアップ成長支援 Web制作</h1>
-    <p class="hero-desc">
-      創業〜シリーズA前のスタートアップを対象に、公式サイト制作と運用支援を提供します。ブランド設計・CV導線・計測設計を重視した設計型制作で、成長の土台をつくります。
-    </p>
-    <p style="margin-top:16px;font-size:14px;color:var(--muted);">専門用語がわからなくても大丈夫。何をするか・なぜ必要か、一緒に整理します。</p>
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="hero-label anim-reveal" data-anim-reveal>FOR STARTUPS</p>
+      <h1 class="anim-reveal" data-anim-reveal style="transition-delay:0.08s">スタートアップ成長支援 Web制作</h1>
+      <p class="hero-desc anim-reveal" data-anim-reveal style="transition-delay:0.15s">
+        創業〜シリーズA前のスタートアップを対象に、公式サイト制作と運用支援を提供します。ブランド設計・CV導線・計測設計を重視した設計型制作で、成長の土台をつくります。
+      </p>
+      <p class="anim-reveal" data-anim-reveal style="margin-top:16px;font-size:14px;color:var(--muted);transition-delay:0.22s">専門用語がわからなくても大丈夫。何をするか・なぜ必要か、一緒に整理します。</p>
+    </div>
   </section>
 
   <main class="main">
     <section class="section" id="about">
-      <h2 class="section-title">こんな方に</h2>
+      <h2 class="section-title anim-reveal" data-anim-reveal>こんな方に</h2>
       <div class="icon-cards">
-        <div class="icon-card">
+        <div class="icon-card anim-reveal anim-reveal-from-left" data-anim-reveal data-tilt>
           <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L4 14h6l-2 8 10-10h-6l2-8z"/></svg></div>
           <strong>創業したばかり</strong>
           <span>会社の顔になる公式サイトを、ゼロから一緒につくりたい</span>
         </div>
-        <div class="icon-card">
+        <div class="icon-card anim-reveal anim-reveal-from-bottom" data-anim-reveal data-tilt>
           <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 7h8M8 11h8M8 15h4"/></svg></div>
           <strong>情報を一本化したい</strong>
           <span>サービス紹介・問い合わせをひとつのサイトにまとめたい</span>
         </div>
-        <div class="icon-card">
+        <div class="icon-card anim-reveal anim-reveal-from-bottom" data-anim-reveal data-tilt>
           <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l5-5 4 4 9-9"/><path d="M21 10v7H14"/></svg></div>
           <strong>問い合わせを増やしたい</strong>
           <span>見た人が「申し込みたい」と思う導線を設計したい</span>
         </div>
-        <div class="icon-card">
+        <div class="icon-card anim-reveal anim-reveal-from-right" data-anim-reveal data-tilt>
           <div class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 14v4M11 10v8M15 6v12M19 2v16"/></svg></div>
           <strong>データで改善したい</strong>
           <span>アクセスや成約を計測して、サイトを育てていきたい</span>
         </div>
       </div>
 
-      <h2 class="section-title">サービス概要</h2>
-      <div class="intro-card">
+      <h2 class="section-title anim-reveal" data-anim-reveal>サービス概要</h2>
+      <div class="intro-card anim-reveal anim-reveal-from-bottom" data-anim-reveal>
         <p>当社は、創業〜シリーズA前のスタートアップを対象に、Webサイト制作および運用支援を提供しています。</p>
         <p><strong>スタートアップ向け</strong>の内容は以下のとおりです。</p>
         <ul>
@@ -231,10 +258,10 @@
     </section>
 
     <section class="section" id="packages">
-      <h2 class="section-title">パッケージ</h2>
-      <p style="margin:-8px 0 24px;font-size:14px;color:var(--text-secondary);">予算と「やりたいこと」に合わせて選べる3段階。まずは Launch から始める方が多いです。</p>
+      <h2 class="section-title anim-reveal" data-anim-reveal>パッケージ</h2>
+      <p class="anim-reveal" data-anim-reveal style="margin:-8px 0 24px;font-size:14px;color:var(--text-secondary);">予算と「やりたいこと」に合わせて選べる3段階。まずは Launch から始める方が多いです。</p>
 
-      <div class="package-card pkg-launch">
+      <div class="package-card pkg-launch anim-reveal anim-reveal-from-left" data-anim-reveal>
         <h3>むぅ＆もも Launch Package</h3>
         <p class="package-price">制作費 1,200,000円（税別）</p>
         <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">「ちゃんとした公式サイトが欲しい」に応えるスタートプラン</p>
@@ -251,7 +278,7 @@
         </p>
       </div>
 
-      <div class="package-card pkg-core">
+      <div class="package-card pkg-core anim-reveal anim-reveal-from-bottom" data-anim-reveal>
         <h3>むぅ＆もも Core Package</h3>
         <p class="package-price">制作費 1,600,000円（税別）</p>
         <p class="adds">Launch内容に加えて：</p>
@@ -266,7 +293,7 @@
         </p>
       </div>
 
-      <div class="package-card pkg-scale">
+      <div class="package-card pkg-scale anim-reveal anim-reveal-from-right" data-anim-reveal>
         <h3>むぅ＆もも Scale Package</h3>
         <p class="package-price">制作費 2,200,000円〜（税別）</p>
         <p class="adds">Core内容に加えて：</p>
@@ -279,8 +306,8 @@
     </section>
 
     <section class="section" id="options">
-      <h2 class="section-title">追加オプション（スタートアップ）</h2>
-      <ul class="option-list option-list-ico">
+      <h2 class="section-title anim-reveal" data-anim-reveal>追加オプション（スタートアップ）</h2>
+      <ul class="option-list option-list-ico anim-reveal anim-reveal-from-bottom" data-anim-reveal>
         <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span><span>独自ドメイン取得・設定</span><span class="price">実費＋設定費 10,000円〜</span></li>
         <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span><span>ドメイン保守</span><span class="price">更新代行・管理 要相談</span></li>
         <li><span class="list-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span><span>ブランド戦略詳細設計</span><span class="price">150,000円</span></li>
@@ -292,30 +319,30 @@
     </section>
 
     <section class="section" id="support">
-      <h2 class="section-title">月額伴走支援・スタートアップ保守</h2>
-      <p style="margin:-8px 0 16px;font-size:14px;color:var(--text-secondary);">サイト公開後も、運用から改善まで。一番安いプランはサーバー管理のみの2万円/月から。5万円/月以上のプランには Google Workspace（実費＋管理費）を組み込み。ドメインメール取得・保守はライトプランから標準で含みます。</p>
-      <div class="support-row plan-server">
+      <h2 class="section-title anim-reveal" data-anim-reveal>月額伴走支援・スタートアップ保守</h2>
+      <p class="anim-reveal" data-anim-reveal style="margin:-8px 0 16px;font-size:14px;color:var(--text-secondary);">サイト公開後も、運用から改善まで。一番安いプランはサーバー管理のみの2万円/月から。5万円/月以上のプランには Google Workspace（実費＋管理費）を組み込み。ドメインメール取得・保守はライトプランから標準で含みます。</p>
+      <div class="support-row plan-server anim-reveal anim-reveal-from-left" data-anim-reveal>
         <div>
           <div class="support-name"><span class="list-ico" style="width:18px;height:18px;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>サーバー管理</div>
           <div class="support-price">20,000円／月</div>
           <div class="support-desc">スタートアップ保守。サーバー・ドメインの管理のみ。独自ドメイン未取得の場合は<a href="app.html#contact">お問い合わせ</a>にて取得・設定のご案内をします。</div>
         </div>
       </div>
-      <div class="support-row plan-light">
+      <div class="support-row plan-light anim-reveal anim-reveal-from-bottom" data-anim-reveal>
         <div>
           <div class="support-name"><span class="list-ico" style="width:18px;height:18px;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>ライトプラン</div>
           <div class="support-price">50,000円／月</div>
           <div class="support-desc">月1改善MTG・数値レポート・軽微修正。Google Workspace（実費＋管理費）組み込み。ドメインメール取得・保守は標準で含みます。</div>
         </div>
       </div>
-      <div class="support-row plan-standard">
+      <div class="support-row plan-standard anim-reveal anim-reveal-from-bottom" data-anim-reveal>
         <div>
           <div class="support-name"><span class="list-ico" style="width:18px;height:18px;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>スタンダード</div>
           <div class="support-price">80,000円／月</div>
           <div class="support-desc">改善提案・UI改善・仮説検証設計・A/Bテスト管理。Google Workspace・ドメインメール取得・保守は標準で含みます。</div>
         </div>
       </div>
-      <div class="support-row plan-growth">
+      <div class="support-row plan-growth anim-reveal anim-reveal-from-right" data-anim-reveal>
         <div>
           <div class="support-name"><span class="list-ico" style="width:18px;height:18px;margin-right:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/></svg></span>グロースパートナー</div>
           <div class="support-price">150,000円／月〜</div>
@@ -326,9 +353,9 @@
     </section>
 
     <section class="section" id="glossary">
-      <h2 class="section-title">用語解説</h2>
-      <p style="margin:-8px 0 20px;font-size:14px;color:var(--text-secondary);">よく出てくる言葉の意味です。不明な点はお気軽にご質問ください。</p>
-      <div class="glossary">
+      <h2 class="section-title anim-reveal" data-anim-reveal>用語解説</h2>
+      <p class="anim-reveal" data-anim-reveal style="margin:-8px 0 20px;font-size:14px;color:var(--text-secondary);">よく出てくる言葉の意味です。不明な点はお気軽にご質問ください。</p>
+      <div class="glossary anim-reveal anim-reveal-from-bottom" data-anim-reveal>
         <dl class="glossary-list">
           <div class="glossary-item">
             <dt>ブランド設計</dt>
@@ -387,22 +414,22 @@
     </section>
 
     <section class="section" id="terms">
-      <h2 class="section-title">共通支払い条件・納期</h2>
-      <div class="terms-block">
+      <h2 class="section-title anim-reveal" data-anim-reveal>共通支払い条件・納期</h2>
+      <div class="terms-block anim-reveal anim-reveal-from-bottom" data-anim-reveal>
         <h3>制作費</h3>
         <p>着手時50％／公開前50％</p>
       </div>
-      <div class="terms-block">
+      <div class="terms-block anim-reveal anim-reveal-from-bottom" data-anim-reveal>
         <h3>納期</h3>
         <p>4〜8週間</p>
       </div>
-      <div class="terms-block">
+      <div class="terms-block anim-reveal anim-reveal-from-bottom" data-anim-reveal>
         <h3>修正</h3>
         <p>2回まで無料</p>
       </div>
     </section>
 
-    <div class="cta-box">
+    <div class="cta-box anim-reveal anim-reveal-from-bottom" data-anim-reveal>
       <p style="margin:0 0 16px;color:var(--text-secondary);">お見積り・ご相談はお気軽にどうぞ</p>
       <a href="app.html#contact">お問い合わせ</a>
     </div>
@@ -421,6 +448,10 @@
           <a href="mailto:info@mu-and-momo.com">メールでお問い合わせ</a>
         </div>
       </div>
+      <div class="footer-qr">
+        <p>このページのQRコード</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&amp;data=https%3A%2F%2Fmu-and-momo.com%2Fstartup.html" width="100" height="100" alt="Web制作ページのQRコード">
+      </div>
       <div class="footer-bottom">
         <p class="copyright">© <span id="y"></span> mu & momo, Inc. All Rights Reserved.</p>
         <p class="copyright" style="margin-top:8px;">インターネット異性紹介事業届出済　受理番号：志村26-019698（届出日：令和8年2月27日）</p>
@@ -429,6 +460,7 @@
   </footer>
 
   <button class="pagetop" type="button" aria-label="ページトップへ" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <script src="anim.js"></script>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
     window.addEventListener('scroll',function(){document.querySelector('.pagetop').classList.toggle('visible',window.scrollY>400)});
