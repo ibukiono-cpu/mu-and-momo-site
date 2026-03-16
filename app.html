@@ -38,6 +38,10 @@
       --shadow-accent:0 4px 14px rgba(37,99,235,.25);
       --font-serif:'Noto Serif JP',Georgia,serif;
       --font-sans:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;
+      --miora-from:#db2777;
+      --miora-to:#be185d;
+      --miora-soft:rgba(219,39,119,.12);
+      --miora-border:rgba(219,39,119,.3);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -77,6 +81,12 @@
     .legal-doc li{margin:8px 0}
     .legal-doc .doc-meta{font-size:13px;color:var(--muted);margin-bottom:32px}
     .legal-doc .card-inline{padding:20px 24px;margin:16px 0;background:#fff;border:1px solid var(--line);border-radius:4px}
+    @keyframes miora-glow{0%,100%{box-shadow:0 0 32px rgba(219,39,119,.25),0 0 60px rgba(219,39,119,.12)}50%{box-shadow:0 0 48px rgba(219,39,119,.4),0 0 80px rgba(219,39,119,.18)}}
+    .hero-cta-wrap{margin-top:36px;padding:32px 40px;background:linear-gradient(135deg, rgba(219,39,119,.18) 0%, rgba(236,72,153,.08) 50%, rgba(219,39,119,.12) 100%);border:3px solid var(--miora-border);border-radius:20px;text-align:center;box-shadow:0 8px 32px rgba(219,39,119,.15) inset}
+    .hero-cta-label{display:block;font-size:13px;font-weight:700;color:var(--miora-from);letter-spacing:.2em;margin-bottom:14px;text-transform:uppercase;text-shadow:0 0 20px rgba(219,39,119,.3)}
+    .hero-cta-app{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:26px 56px;background:linear-gradient(135deg, #ec4899 0%, var(--miora-from) 35%, var(--miora-to) 100%);color:#fff;font-weight:800;font-size:20px;border-radius:14px;text-decoration:none;transition:all .35s;letter-spacing:.06em;border:2px solid rgba(255,255,255,.35);box-shadow:0 8px 32px rgba(219,39,119,.5),0 0 0 1px rgba(255,255,255,.3) inset;animation:miora-glow 3s ease-in-out infinite}
+    .hero-cta-app:hover{color:#fff;transform:translateY(-6px) scale(1.04);box-shadow:0 16px 48px rgba(219,39,119,.55),0 0 60px rgba(219,39,119,.25),0 0 0 1px rgba(255,255,255,.4) inset;animation:none}
+    .hero-cta-app::after{content:'';width:24px;height:24px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23fff' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M13 7l5 5m0 0l-5 5m5-5H6'/%3E%3C/svg%3E") no-repeat center;background-size:contain;filter:drop-shadow(0 0 4px rgba(255,255,255,.5))}
     .toc{display:flex;gap:24px;flex-wrap:wrap;margin:24px 0 0;padding:24px 0 0;border-top:1px solid var(--line)}
     .toc a{display:inline-block;padding:10px 20px;background:#fff;border:1px solid var(--line);border-radius:4px;color:var(--accent);font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;letter-spacing:.02em}
     .toc a:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-1px);box-shadow:var(--shadow-accent)}
@@ -176,6 +186,10 @@
     <p class="hero-desc">
       トランスジェンダーのためのコミュニティアプリ。本人確認を厳格に行い、安心してご利用いただけるサービスを提供しています。
     </p>
+    <div class="hero-cta-wrap">
+      <span class="hero-cta-label">ブラウザで今すぐ利用</span>
+      <a href="https://miora.mu-and-momo.com" target="_blank" rel="noopener" class="hero-cta-app">Miora を開く</a>
+    </div>
     <div class="toc">
       <a href="#about">サービス概要</a>
       <a href="#faq">よくある質問</a>
@@ -211,7 +225,7 @@
       <h2 class="section-title section-title-spaced">ダウンロード</h2>
       <div class="card">
         <p>
-          Miora は App Store および Google Play からダウンロードいただけます。18歳以上の方のみご利用いただけます。
+          Miora は App Store および Google Play からダウンロードいただけます（アプリは現在準備中です）。18歳以上の方のみご利用いただけます。
         </p>
         <a href="mailto:miora.official@mu-and-momo.com?subject=Miora%20%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" class="cta">お問い合わせ</a>
       </div>
@@ -297,10 +311,10 @@
           <li><strong>月額プラン（男性）</strong>：Basic ¥1,980/月、Suite ¥4,980/月、VIP ¥10,980/月（いずれも税込）</li>
           <li><strong>月額プラン（MTF(トランスジェンダー)）</strong>：Basic 無料、Suite ¥1,980/月、VIP ¥4,980/月（いずれも税込）</li>
           <li><strong>アイテム課金</strong>：シグナル 5個 ¥300／20個 ¥1,100／60個 ¥2,980、流れ星 1個 ¥300／5個 ¥1,280／10個 ¥1,980</li>
-          <li>料金および提供内容はアプリ内に表示します。価格は予告なく変更される場合があります（契約期間中に不利益が生じないよう合理的配慮を行います）。</li>
-          <li>決済は各アプリストア（Apple App Store / Google Play）の規約に従います。</li>
-          <li>自動更新課金：ユーザーが解約手続きを行うまで自動更新されます。更新日前までに各ストアのサブスクリプション設定から解約してください。</li>
-          <li>返金は<strong>各ストアポリシーに準拠</strong>します（原則として本サービスでは返金できません）。</li>
+          <li>料金および提供内容はアプリ内・Webアプリ内に表示します。価格は予告なく変更される場合があります（契約期間中に不利益が生じないよう合理的配慮を行います）。</li>
+          <li><strong>アプリ版</strong>：決済は各アプリストア（Apple App Store / Google Play）の規約に従います。自動更新課金は、ユーザーが解約手続きを行うまで自動更新されます。更新日前までに各ストアのサブスクリプション設定から解約してください。</li>
+          <li><strong>Web版（Miora Webアプリ）</strong>：クレジットカード・デビットカード決済には、決済代行事業者 Stripe（Stripe, Inc.）のサービスを利用しています。決済の処理およびお支払い情報の取扱いは、Stripe の利用規約・プライバシーポリシーおよび関連する規約に従います。利用者は、Web版で有料プラン・アイテム課金を利用するにあたり、Stripe 経由で決済を行うことに同意するものとします。</li>
+          <li>返金は、アプリ版は<strong>各ストアポリシーに準拠</strong>し、Web版（Stripe 経由の決済）は原則としてお受けしておりません。いずれも本サービスとしては原則返金対応を行いません。</li>
         </ul>
 
         <h2>5. 投稿およびコミュニケーション</h2>
@@ -446,9 +460,9 @@
           <tr><th>電気通信事業者届出</th><td>届出番号 A-07-23300（届出日：令和8年2月16日）</td></tr>
           <tr><th>連絡先</th><td><a href="mailto:miora.official@mu-and-momo.com">miora.official@mu-and-momo.com</a><br>（原則メール対応。緊急時はアプリ内通知で告知）</td></tr>
           <tr><th>販売価格</th><td>男性：Basic ¥1,980/月、Suite ¥4,980/月、VIP ¥10,980/月（いずれも税込）<br>MTF(トランスジェンダー)：Basic 無料、Suite ¥1,980/月、VIP ¥4,980/月（いずれも税込）<br><br>【アイテム課金】<br>シグナル：5個 ¥300、20個 ¥1,100、60個 ¥2,980<br>流れ星：1個 ¥300、5個 ¥1,280、10個 ¥1,980</td></tr>
-          <tr><th>支払時期・方法</th><td>Apple App Store / Google Play の規約に従います（自動更新）。</td></tr>
+          <tr><th>支払時期・方法</th><td>【アプリ版】Apple App Store / Google Play の規約に従います（自動更新）。<br>【Web版】Miora Webアプリ（miora.mu-and-momo.com）では、Stripe（Stripe, Inc. による決済代行）を利用したクレジットカード・デビットカード決済が可能です。決済はStripeの規約および利用規約に従います。</td></tr>
           <tr><th>役務の提供時期</th><td>購入手続完了後、即時利用可能。</td></tr>
-          <tr><th>返品・キャンセル</th><td>デジタル役務の性質上、原則として返品・返金はできません。返金可否は各ストアのポリシーに準拠します。</td></tr>
+          <tr><th>返品・キャンセル</th><td>デジタル役務の性質上、原則として返品・返金はできません。アプリ版は各ストアのポリシーに準拠します。Web版（Stripe経由の決済）についても、原則として返金はお受けしておりません。</td></tr>
           <tr><th>動作環境</th><td>最新の iOS / Android を推奨。通信環境が必要です。</td></tr>
           <tr><th>インターネット異性紹介事業</th><td>届出済　受理番号：志村26-019698（届出日：令和8年2月27日）</td></tr>
           <tr><th>その他の重要事項</th><td>18歳未満の利用禁止。違反行為が確認された場合は利用停止等の措置を行います。</td></tr>
