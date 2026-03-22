@@ -77,6 +77,14 @@
     .hero h1{font-family:var(--font-serif);font-weight:600;font-size:clamp(36px,5vw,48px);letter-spacing:.08em;margin:0 0 20px;line-height:1.3;color:var(--text)}
     .hero-desc{max-width:560px;margin:0 auto;font-size:16px;color:var(--text-secondary);line-height:2}
     .hero-age-notice{margin:16px auto 0;padding:10px 16px;max-width:560px;font-size:14px;font-weight:600;color:var(--text);background:var(--bg-subtle);border:1px solid var(--line);border-radius:6px;text-align:center}
+    .hero-service-notes{max-width:640px;margin:28px auto 0;padding:0;overflow:hidden;border-radius:16px;border:3px solid var(--miora-from);box-shadow:0 14px 44px rgba(219,39,119,.28),0 4px 16px rgba(190,24,93,.12),0 0 0 1px rgba(255,255,255,.6) inset;background:#fff;text-align:left}
+    .hero-service-notes-label{margin:0;padding:14px 22px;font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:linear-gradient(135deg, #ec4899 0%, var(--miora-from) 40%, var(--miora-to) 100%);text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.15)}
+    .hero-service-notes ul{margin:0;padding:22px 24px 24px 48px;list-style:none;font-size:15px;line-height:1.85;color:var(--text);background:linear-gradient(180deg, rgba(252,231,243,.55) 0%, #fff 48%)}
+    .hero-service-notes li{margin:16px 0;position:relative;padding-left:4px}
+    .hero-service-notes li:first-child{margin-top:0}
+    .hero-service-notes li:last-child{margin-bottom:0}
+    .hero-service-notes li::before{content:'';position:absolute;left:-28px;top:.42em;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg, var(--miora-from), var(--miora-to));box-shadow:0 0 0 3px rgba(219,39,119,.2)}
+    .hero-service-notes strong{color:var(--miora-to);font-weight:800;font-size:16px;display:inline-block;margin-right:4px}
     .main{max-width:800px;margin:0 auto;padding:0 32px 100px}
     .section{margin-bottom:72px}
     .section-title{font-family:var(--font-serif);font-weight:600;font-size:22px;letter-spacing:.08em;margin:0 0 28px;padding-bottom:16px;border-bottom:3px solid var(--accent);color:var(--text)}
@@ -152,7 +160,7 @@
     .pagetop{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:20px;line-height:48px;box-shadow:var(--shadow-accent);z-index:90;opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s,transform .2s}
     .pagetop.visible{opacity:1;visibility:visible}
     .pagetop:hover{background:var(--accent-hover);color:#fff;transform:translateY(-2px)}
-    @media (max-width:720px){.header-inner{padding:20px 20px}.hero{padding:72px 20px 56px}.miora-logo{width:140px;height:140px}.main{padding:0 20px 72px}.card,.legal-doc{padding:28px 24px}.nav{display:none}.hamburger{display:flex}}
+    @media (max-width:720px){.header-inner{padding:20px 20px}.hero{padding:72px 20px 56px}.miora-logo{width:140px;height:140px}.main{padding:0 20px 72px}.card,.legal-doc{padding:28px 24px}.nav{display:none}.hamburger{display:flex}.hero-service-notes{margin-left:0;margin-right:0;border-radius:12px}.hero-service-notes ul{padding:18px 20px 20px 40px;font-size:14px}.hero-service-notes li::before{left:-24px}.hero-service-notes strong{font-size:15px}}
   </style>
 </head>
 <body>
@@ -200,6 +208,13 @@
     <p class="hero-desc">
       トランスジェンダーのための出会い・コミュニティアプリ。本人確認を厳格に行い、安心してご利用いただけるサービスを提供しています。
     </p>
+    <div class="hero-service-notes" role="note" aria-label="料金とつながりについて">
+      <p class="hero-service-notes-label">ご利用前にご確認ください</p>
+      <ul>
+        <li><strong>料金：</strong>男性の方は基本プランが有料です。MTF（トランスジェンダー）の方は Basic が無料です（Suite / VIP は有料）。</li>
+        <li><strong>つながり後：</strong>つながりが成立すると、すぐにメッセージなどのやり取りが可能です。</li>
+      </ul>
+    </div>
     <p class="hero-age-notice">18歳未満の方はご利用いただけません。</p>
     <div class="hero-cta-wrap">
       <span class="hero-cta-label">ブラウザで今すぐ利用</span>
